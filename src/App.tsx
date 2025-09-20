@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import Navbar from "./Components/Navbar/Navbar";
+import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
+import Skills from "./Pages/Skills/Skills";
+import Projects from "./Pages/Projects/Projects";
+import Education from "./Pages/Education/Education";
+import Contact from "./Pages/Contact/Contact";
+import { Element } from "react-scroll";
+import NavigateToHome from "./Components/NavigateToHome/NavigateToHome";
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+       <Navbar />
+      <div className="pt-20">
+        <Element name="home">
+          <Home />
+        </Element>
+        <Element name="about">
+          <About />
+        </Element>
+        <Element name="skills">
+          <Skills />
+        </Element>
+        <Element name="projects">
+          <Projects />
+        </Element>
+        <Element name="education">
+          <Education />
+        </Element>
+        <Element name="contact">
+          <Contact />
+        </Element>
+      </div>
+      <NavigateToHome/>
+    </>
   );
 }
-
-export default App;

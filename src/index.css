@@ -1,13 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* tags */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-slate-950 text-white;
+}
+h2 {
+  @apply text-gradient text-4xl md:text-5xl  font-bold capitalize relative text-center;
+}
+h2::after {
+  content: "";
+  width: 90px;
+  height: 4px;
+  position: absolute;
+  top: 135%;
+  left: 47%;
+  border-radius: 10px;
+  @apply bg-gradient-to-r from-sky-500 to-purple-500;
+}
+h5 {
+  @apply text-3xl text-slate-400;
+}
+.contain {
+  @apply w-[90%] mx-auto;
+}
+/* -------------------------------------- */
+/* Navbar */
+.nav-link {
+  @apply text-slate-400 font-semibold relative cursor-pointer hover:text-sky-500 duration-500;
+}
+.active-link {
+  @apply text-main;
+}
+.nav-link::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: all 0.5s;
+  @apply bg-gradient-to-r from-main to-lavender;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.text-gradient {
+  @apply bg-gradient-to-r  from-main  to-lavender bg-clip-text text-transparent;
+}
+.bg-gradient {
+  @apply bg-gradient-to-r from-main to-lavender;
+}
+.bg-gradient:hover {
+  @apply bg-gradient-to-r from-lavender to-main;
+}
+.form-input {
+  @apply bg-slate-800   px-3 rounded-lg focus:outline-none;
+}
+.btn {
+  @apply h-10 flex justify-center my-1 items-center space-x-1  rounded-lg hover:scale-[0.92] duration-200 font-semibold;
+}
+.btn:disabled {
+  @apply opacity-60 cursor-not-allowed;
+}
+.shadow-div {
+  transition: all 0.3s;
+}
+.shadow-div:hover {
+  box-shadow: 1px 1px 15px 0px #123449;
+}
+::-webkit-scrollbar {
+  @apply w-2 bg-slate-800;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-main rounded-full hover:bg-lavender transition-all duration-700;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  h2::after {
+    left: 38%;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
