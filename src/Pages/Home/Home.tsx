@@ -95,9 +95,9 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 1, delay: 1.3 }}
-          className="w-56 h-12  bg-gradient flex justify-center items-center rounded-lg text-lg font-semibold"
+          className="w-56 h-12  bg-gradient flex justify-center items-center rounded-lg text-lg font-semibold hover:scale-90 duration-200"
           download
-          href="https://drive.google.com/uc?export=download&id=19sAjIS-4_zjh5zimns-7aWZoAFPgbyq_"
+          href="https://drive.google.com/uc?export=download&id=1TGC7MX9eJoeLMQ7JrXA6O-E3S84OQJr3"
         >
           <motion.div
             initial={{ y: 0 }}

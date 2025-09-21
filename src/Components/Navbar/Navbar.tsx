@@ -65,11 +65,11 @@ export default function Navbar() {
           <a
             className="w-28 btn border border-gray-800 text-white  hover:bg-lavender duration-300 hover:text-black"
             download
-            href="https://drive.google.com/uc?export=download&id=19sAjIS-4_zjh5zimns-7aWZoAFPgbyq_"
+            href="https://drive.google.com/uc?export=download&id=1TGC7MX9eJoeLMQ7JrXA6O-E3S84OQJr3"
           >
             <motion.div
               initial={{ y: 0 }}
-              animate={{ y: -4 }}
+              animate={{ y: -3 }}
               transition={{ duration: 0.6, repeat: Infinity }}
             >
               <DownloadIcon className="w-4 h-4 " />

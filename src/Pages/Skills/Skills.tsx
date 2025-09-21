@@ -70,8 +70,8 @@ let containerAnimate = {
     opacity: 1,
     transition: {
       duration: 1,
-      delay: 1.3,
-      staggerChildren: 0.15,
+      delay: 1,
+      staggerChildren: 0.2,
       when: "beforeChildren",
     },
   },
@@ -148,29 +148,25 @@ export default function Skills() {
         variants={containerAnimate}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true }}
         className="grid grid-cols-2 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 gap-3 w-[85%] mx-auto"
       >
         <AnimatePresence mode="wait">
-          {filterSkills.map((skill, i) => {
-            return (
-              <motion.div
-                variants={childrensAnimate}
-                initial="hidden"
-                whileInView="visible"
-                transition={{ duration: 0.4 }}
-                exit={{ opacity: 0, y: 20 }}
-                viewport={{ once: true, amount: 0.3 }}
-                key={skill.name}
-                className="shadow-div w-full h-40 border border-sky-950 bg-slate-900 rounded-lg flex flex-col space-y-2 justify-center items-center p-3 hover:scale-[1.01] duration-300"
-              >
-                <DivIcon className="w-14 h-14" icon={skill.icon} />
-
-                <h6 className="font-semibold">{skill.name}</h6>
-                <p className="text-slate-500 text-sm">{skill.category}</p>
-              </motion.div>
-            );
-          })}
+          {filterSkills.map((skill) => (
+            <motion.div
+              key={skill.name}
+              variants={childrensAnimate}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, y: 20 }}
+              layout
+              className="shadow-div w-full h-40 border border-sky-950 bg-slate-900 rounded-lg flex flex-col space-y-2 justify-center items-center p-3 hover:scale-[1.01] duration-300"
+            >
+              <DivIcon className="w-14 h-14" icon={skill.icon} />
+              <h6 className="font-semibold">{skill.name}</h6>
+              <p className="text-slate-500 text-sm">{skill.category}</p>
+            </motion.div>
+          ))}
         </AnimatePresence>
       </motion.div>
     </section>

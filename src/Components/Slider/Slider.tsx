@@ -54,15 +54,15 @@ export default function Slider({ setNavSlider }: TSlider) {
               }}
               className="w-full btn my-2 bg-black border border-gray-600  text-white  hover:bg-lavender duration-200  hover:text-black"
               download
-              href="https://drive.google.com/uc?export=download&id=19sAjIS-4_zjh5zimns-7aWZoAFPgbyq_"
+              href="https://drive.google.com/uc?export=download&id=1TGC7MX9eJoeLMQ7JrXA6O-E3S84OQJr3"
             >
               <motion.div
-              initial={{ y: 0 }}
-              animate={{ y: -4 }}
-              transition={{ duration: 0.6, repeat: Infinity }}
-            >
-              <DownloadIcon className="w-4 h-4 " />
-            </motion.div>
+                initial={{ y: 0 }}
+                animate={{ y: -3 }}
+                transition={{ duration: 0.6, repeat: Infinity }}
+              >
+                <DownloadIcon className="w-4 h-4 " />
+              </motion.div>
               <span>Download Resume</span>
             </a>
             {/* contact */}
@@ -76,9 +76,7 @@ export default function Slider({ setNavSlider }: TSlider) {
                 setNavSlider(false);
               }}
             >
-              <button className="w-full btn bg-main ">
-                Let's talk
-              </button>
+              <button className="w-full btn bg-main ">Let's talk</button>
             </Link>
           </div>
         </div>
