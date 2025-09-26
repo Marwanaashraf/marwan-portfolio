@@ -4,6 +4,7 @@ import fresh from "../../assets/projects/freshcart.png";
 import basket from "../../assets/projects/basket.png";
 import fokir from "../../assets/projects/fokir.png";
 import yummy from "../../assets/projects/yummy.png";
+import dunkin from "../../assets/projects/dunkin.png";
 import weather from "../../assets/projects/Weather.png";
 import { GithubIcon, ShareIcon, TechnoIcon } from "../../icons/index";
 import { motion } from "framer-motion";
@@ -66,6 +67,25 @@ const projectsList = [
       "Tailwindcss",
       "Responsive Design",
       "Swiper",
+      "Formik",
+      "yup",
+    ],
+  },
+  {
+    name: "Dunkin' Donuts",
+    desc: "The project integrates Supabase to manage and fetch dynamic menu data, ensuring scalability and flexibility. It showcases the Dunkin’ Donuts menu with category filtering, displays all branches across Egypt, and highlights the brand’s history. The website also supports Dark Mode.",
+    srcCode: "https://github.com/Marwanaashraf/dunkin-donuts",
+    liveDemo: "https://dunkin-donuts-tawny.vercel.app/",
+    status: true,
+    image: dunkin,
+
+    teshStack: [
+      "React",
+      "Supabase",
+      "Tailwindcss",
+      "cloudinary",
+      "Responsive Design",
+      "Framer motion",
       "Formik",
       "yup",
     ],
