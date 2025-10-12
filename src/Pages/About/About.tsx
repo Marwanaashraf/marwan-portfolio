@@ -1,5 +1,5 @@
 import React from "react";
-import me from "../../assets/photo_2023-10-13_18-34-11.jpg";
+import me from "../../assets/photo_2025-09-16_00-22-15.jpg";
 import { motion } from "framer-motion";
 import { divVariants } from "../Home/Home";
 let aboutAnimate = {
