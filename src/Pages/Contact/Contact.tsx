@@ -1,13 +1,4 @@
 import React, { useState } from "react";
-import {
-  GithubIcon,
-  GmailIcon,
-  LinkedInIcon,
-  LocationIcon,
-  PhoneIcon,
-  ShareIcon,
-} from "../../icons";
-import { GitIcon } from "../../icons/Skills/tools";
 import DivIcon from "../../Components/DivIcon/DivIcon";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -16,43 +7,11 @@ import toast, { Toaster } from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import Footer from "../../Components/Footer/Footer";
-import { divVariants } from "../Home/Home";
-const contactList = [
-  {
-    name: "Email",
-    contact: "marwanelmaghraby45@gmail.com",
-    icon: <GmailIcon />,
-    desc: "Best way to reach me for opportunities",
-  },
-  {
-    name: "Phone",
-    contact: "+20 10 1165 8321",
-    icon: <PhoneIcon className="w-6 h-6" />,
-    desc: "Available for quick discussions",
-  },
-  {
-    name: "Location",
-    contact: "Cairo, Egypt",
-    icon: <LocationIcon className="w-6 h-6" />,
-    desc: "Open to remote and on-Site opportunities worldwide",
-  },
-];
-const mediaList = [
-  {
-    name: "GitHub",
-    contact: "@Marwanaashraf",
-    icon: <GithubIcon className="w-8 h-8" />,
-    desc: "Check out my latest projects and contributions",
-    link: "https://github.com/Marwanaashraf",
-  },
-  {
-    name: "LinkedIn",
-    contact: "@marwan-ashraf-675078298",
-    icon: <LinkedInIcon />,
-    desc: "Let's connect professionally",
-    link: "https://www.linkedin.com/in/marwan-ashraf-675078298/",
-  },
-];
+import { ExternalLink,  Mail } from "lucide-react";
+import { divVariants } from "../../Constants/Motion";
+import { contactList, mediaList } from "../../Constants/Contact";
+
+
 export default function Contact() {
   let [loading, setLoading] = useState<boolean>(false);
   let initialValues: IContact = {
@@ -173,7 +132,7 @@ export default function Contact() {
                   className="btn w-60 bg-black border border-sky-900"
                 >
                   {" "}
-                  <ShareIcon /> <span>Visit Profile</span>
+                  <ExternalLink className="w-4 h-4" /> <span>Visit Profile</span>
                 </button>
               </motion.div>
             );
@@ -300,7 +259,7 @@ export default function Contact() {
                 type="submit"
                 className="btn text-base items-center bg-main w-36 "
               >
-                <i className="fa-regular fa-envelope text-lg"></i>{" "}
+                <Mail className="w-4 h-4"/>
                 <span>Send Message</span>
               </button>
             )}

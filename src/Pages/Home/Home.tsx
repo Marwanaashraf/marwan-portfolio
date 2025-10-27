@@ -1,41 +1,11 @@
-import React from "react";
-import {
-  ArrowIcon,
-  DownloadIcon,
-  GithubIcon,
-  GmailIcon,
-  LinkedInIcon,
-} from "../../icons";
 import { Link } from "react-scroll";
-import { m, motion } from "framer-motion";
-export const socilMediaIcons = [
-  {
-    name: "gmail",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=marwanelmaghraby45@gmail.com",
-    icon: <GmailIcon />,
-  },
-  {
-    name: "github",
-    href: "https://github.com/Marwanaashraf",
-    icon: <GithubIcon className="w-6 h-6" />,
-  },
+import { motion } from "framer-motion";
+import { ArrowDown, Download } from "lucide-react";
+import { divVariants } from "../../Constants/Motion";
+import { socilMediaIcons } from "../../Constants/SocialMediaIcons";
 
-  {
-    name: "linkedIn",
-    href: "https://www.linkedin.com/in/marwan-ashraf-675078298/",
-    icon: <LinkedInIcon />,
-  },
-];
-export let divVariants = {
-  hidden: {
-    y: 40,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
+
+
 export default function Home() {
   return (
     <section className="h-screen relative">
@@ -95,16 +65,16 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 1, delay: 1.3 }}
-          className="w-56 h-12  bg-gradient flex justify-center items-center rounded-lg text-lg font-semibold hover:scale-90 duration-200"
+          className="w-56 h-12  bg-gradient flex justify-center items-center rounded-lg text-lg font-semibold hover:scale-90 duration-200 space-x-2"
           download
-          href="https://drive.google.com/uc?export=download&id=1TGC7MX9eJoeLMQ7JrXA6O-E3S84OQJr3"
+          href="https://drive.google.com/uc?export=download&id=12EhR9KXXWLd40-RyUX5DzflvRmzWmahm"
         >
           <motion.div
             initial={{ y: 0 }}
             animate={{ y: -4 }}
             transition={{ duration: 0.6, repeat: Infinity }}
           >
-            <DownloadIcon className="w-5 h-5 " />
+            <Download className="w-5 h-5" />
           </motion.div>
           <span>Download Resume</span>
         </motion.a>
@@ -144,8 +114,8 @@ export default function Home() {
           transition={{ duration: 1, repeat: Infinity }}
           className="absolute bottom-28 left-1/2 text-2xl cursor-pointer group"
         >
-          <ArrowIcon />
-        </motion.div>
+          <ArrowDown className="w-8 h-8 text-gray-600" />
+        </motion.div> 
       </Link>
     </section>
   );

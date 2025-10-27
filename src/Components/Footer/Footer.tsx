@@ -1,7 +1,5 @@
-import React from "react";
-import { LocationIcon, PhoneIcon } from "../../icons";
-import { socilMediaIcons } from "../../Pages/Home/Home";
-
+import { MapPin, Phone } from "lucide-react";
+import { socilMediaIcons } from "../../Constants/SocialMediaIcons";
 export default function Footer() {
   return (
     <footer className="py-14 border-t border-sky-950">
@@ -12,10 +10,10 @@ export default function Footer() {
           <div className="space-y-3 w-full md:w-fit">
             <h1 className="text-gradient text-3xl font-bold">Marwan Ashraf</h1>
             <div className="flex space-x-1 items-center">
-              <LocationIcon className="w-4 h-4" /> <span>Cairo, Egypt</span>{" "}
+              <MapPin className="w-4 h-4 text-main" /> <span>Cairo, Egypt</span>{" "}
             </div>
             <div className="flex space-x-1 items-center">
-              <PhoneIcon className="w-4 h-4" />{" "}
+              <Phone className="w-4 h-4 text-main" />{" "}
               <span>Available for remote Work</span>{" "}
             </div>
           </div>

@@ -1,99 +1,18 @@
 import React, { useState } from "react";
-import {
-  BootstrapIcon,
-  CssIcon,
-  HtmlIcon,
-  JQueryIcon,
-  NextIcon,
-  ReactIcon,
-  TailwindIcon,
-} from "../../icons/Skills/frontend";
-import {
-  CIcon,
-  JavaIcon,
-  JsIcon,
-  PythonIcon,
-  TsIcon,
-} from "../../icons/Skills/languages";
-import {
-  ExpressIcon,
-  MongoIcon,
-  NodeIcon,
-  SqlIcon,
-  SupabaseIcon,
-} from "../../icons/Skills/backend";
-import { GitIcon } from "../../icons/Skills/tools";
-import { ProblemIcon, ProjectIcon, TeamIcon } from "../../icons/Skills/soft";
 import { ISkill } from "../../Interfaces/skills";
-import { CodeIcon } from "../../icons";
 import DivIcon from "../../Components/DivIcon/DivIcon";
 import { AnimatePresence, motion } from "framer-motion";
-import { divVariants } from "../Home/Home";
-// allSkills
-let skills: ISkill[] = [
-  { name: "HTML5", category: "Frontend", icon: <HtmlIcon /> },
-  { name: "CSS", category: "Frontend", icon: <CssIcon /> },
-  { name: "BootStrap", category: "Frontend", icon: <BootstrapIcon /> },
-  { name: "Tailwind", category: "Frontend", icon: <TailwindIcon /> },
-  { name: "JavaScript", category: "Programming Languages", icon: <JsIcon /> },
-  { name: "TypeScript", category: "Programming Languages", icon: <TsIcon /> },
-  { name: "JQuery", category: "Frontend", icon: <JQueryIcon /> },
-  { name: "React.js", category: "Frontend", icon: <ReactIcon /> },
-  { name: "Next.js", category: "Frontend", icon: <NextIcon /> },
-  { name: "Node.js", category: "Backend", icon: <NodeIcon /> },
-  { name: "Express.js", category: "Backend", icon: <ExpressIcon /> },
-  { name: "MySQL", category: "Backend", icon: <SqlIcon /> },
-  { name: "MongoDB", category: "Backend", icon: <MongoIcon /> },
-  { name: "Supabase", category: "Backend", icon: <SupabaseIcon /> },
-  { name: "C++", category: "Programming Languages", icon: <CIcon /> },
-  { name: "Python", category: "Programming Languages", icon: <PythonIcon /> },
-  { name: "Java", category: "Programming Languages", icon: <JavaIcon /> },
-  { name: "GitHub", category: "Tools", icon: <GitIcon /> },
-  { name: "Team Communication", category: "Soft Skills", icon: <TeamIcon /> },
-  { name: "Problem Solving", category: "Soft Skills", icon: <ProblemIcon /> },
-  { name: "Project Planning", category: "Soft Skills", icon: <ProjectIcon /> },
-];
-// categories
-let skillsCategory: string[] = [
-  "All Skills",
-  "Frontend",
-  "Backend",
-  "Programming Languages",
-  "Tools",
-  "Soft Skills",
-];
-let containerAnimate = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      delay: 1,
-      staggerChildren: 0.2,
-      when: "beforeChildren",
-    },
-  },
-};
-let childrensAnimate = {
-  hidden: {
-    y: 30,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
+import {  CodeXml } from "lucide-react";
+import { skills, skillsCategory } from "../../Constants/Skills";
+import { childrensAnimate, containerAnimate, divVariants } from "../../Constants/Motion";
 export default function Skills() {
   // displayed skills
-  let [filterSkills, setFilterSkills] = useState<ISkill[]>(skills);
+  let [filterSkills, setFilterSkills] = useState<ISkill[]>(skills.slice(0,15));
   // active Category
   let [activeCategory, setActiveCategry] = useState<string>("All Skills");
   let handleSkills = (category: string) => {
     if (category === "All Skills") {
-      setFilterSkills(skills);
+      setFilterSkills(skills.slice(0,15));
       setActiveCategry(category);
     } else {
       let result = skills.filter((item) => item.category === category);
@@ -137,7 +56,7 @@ export default function Skills() {
                   : "border border-sky-900 my-2 w-fit h-9 p-3 rounded-full flex justify-center items-center cursor-pointer space-x-2 hover:bg-slate-900 hover:text-main hover:border-main"
               }
             >
-              <CodeIcon />
+              <CodeXml className="w-5 h-5" />
               <span>{item}</span>
             </div>
           );
@@ -164,7 +83,7 @@ export default function Skills() {
             >
               <DivIcon className="w-14 h-14" icon={skill.icon} />
               <h6 className="font-semibold">{skill.name}</h6>
-              <p className="text-slate-500 text-sm">{skill.category}</p>
+              <p className="text-slate-400 text-sm">{skill.category}</p>
             </motion.div>
           ))}
         </AnimatePresence>

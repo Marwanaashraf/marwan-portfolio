@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { links } from "../Navbar/Navbar";
 import { Link } from "react-scroll";
-import { DownloadIcon } from "../../icons";
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 type TSlider = {
   setNavSlider: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -54,14 +54,14 @@ export default function Slider({ setNavSlider }: TSlider) {
               }}
               className="w-full btn my-2 bg-black border border-gray-600  text-white  hover:bg-lavender duration-200  hover:text-black"
               download
-              href="https://drive.google.com/uc?export=download&id=1TGC7MX9eJoeLMQ7JrXA6O-E3S84OQJr3"
+              href="https://drive.google.com/uc?export=download&id=12EhR9KXXWLd40-RyUX5DzflvRmzWmahm"
             >
               <motion.div
                 initial={{ y: 0 }}
                 animate={{ y: -3 }}
                 transition={{ duration: 0.6, repeat: Infinity }}
               >
-                <DownloadIcon className="w-4 h-4 " />
+                <Download className="w-4 h-4" />
               </motion.div>
               <span>Download Resume</span>
             </a>

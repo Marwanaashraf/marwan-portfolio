@@ -1,6 +1,6 @@
-import { ChalnderIcon, LocationIcon } from "../../icons";
 import { motion } from "framer-motion";
-import { divVariants } from "../Home/Home";
+import { Calendar, GraduationCap, MapPin } from "lucide-react";
+import { divVariants } from "../../Constants/Motion";
 export default function Education() {
   return (
     <section className="contain py-10">
@@ -23,11 +23,11 @@ export default function Education() {
       >
         {/* bechlor */}
         <div className="flex items-center space-x-4 ">
-          <div className="w-32 h-16 lg:w-20 lg:h-20 bg-slate-900 rounded-lg flex justify-center items-center text-main">
-            <i className="fa-solid fa-graduation-cap text-xl md:text-4xl "></i>
+          <div className="w-28 sm:w-24 h-16  lg:w-20 lg:h-20 bg-slate-900 rounded-lg flex justify-center items-center text-main">
+            <GraduationCap className="w-8 h-8 sm:w-12 sm:h-12 text-main" />
           </div>
           <div>
-            <h3 className="text-gradient text-lg sm:text-xl md:text-3xl font-bold">
+            <h3 className="text-gradient text-lg sm:text-xl md:text-2xl xl:text-3xl font-bold">
               Bachelor of Computer Science and Information Systems
             </h3>
             <p className="text-main text-base md:text-xl font-bold">
@@ -46,7 +46,7 @@ export default function Education() {
             transition={{ duration: 1, delay: 0.6 }}
             className="bg-slate-800 rounded-lg p-3 flex items-center space-x-2 font-semibold"
           >
-            <ChalnderIcon />
+            <Calendar className="w-5 h-5 text-main " />
             <span>2020 – 2024 (Graduated)</span>
           </motion.div>
           <motion.div
@@ -57,7 +57,7 @@ export default function Education() {
             transition={{ duration: 1, delay: 0.9 }}
             className="bg-slate-800 rounded-lg p-3 flex items-center space-x-2 font-semibold"
           >
-            <LocationIcon className="w-6 h-6" />
+            <MapPin className="w-6 h-6 text-main" />
             <span>Cairo, Egypt</span>
           </motion.div>
         </div>
@@ -71,7 +71,7 @@ export default function Education() {
           transition={{ duration: 1, delay: 1 }}
           className="bg-slate-900 rounded-lg p-3 flex items-center space-x-2 font-semibold text-2xl"
         >
-          <i className="fa-solid fa-graduation-cap text-main"></i>
+          <GraduationCap className="w-8 h-8 text-main" />
           <span>Graduation Project</span>
         </motion.div>
 

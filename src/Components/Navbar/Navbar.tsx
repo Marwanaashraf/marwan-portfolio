@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { link } from "../../Interfaces/link";
 import { Link } from "react-scroll";
 import Slider from "../Slider/Slider";
-import { DownloadIcon } from "../../icons";
 import { motion } from "framer-motion";
+import { Download, TextAlignJustify, X } from "lucide-react";
 // links
 export const links: link[] = [
   { pathName: "Home", href: "home" },
@@ -13,7 +13,6 @@ export const links: link[] = [
   { pathName: "Education", href: "education" },
   { pathName: "Contact", href: "contact" },
 ];
-
 export default function Navbar() {
   // slider
   let [navSlider, setNavSlider] = useState(false);
@@ -65,14 +64,14 @@ export default function Navbar() {
           <a
             className="w-28 btn border border-gray-800 text-white  hover:bg-lavender duration-300 hover:text-black"
             download
-            href="https://drive.google.com/uc?export=download&id=1TGC7MX9eJoeLMQ7JrXA6O-E3S84OQJr3"
+            href="https://drive.google.com/uc?export=download&id=12EhR9KXXWLd40-RyUX5DzflvRmzWmahm"
           >
             <motion.div
               initial={{ y: 0 }}
               animate={{ y: -3 }}
               transition={{ duration: 0.6, repeat: Infinity }}
             >
-              <DownloadIcon className="w-4 h-4 " />
+              <Download className="w-4 h-4" />
             </motion.div>
             <span>Resume</span>
           </a>
@@ -88,9 +87,9 @@ export default function Navbar() {
         {/* list */}
         <div onClick={handleSlider} className="block lg:hidden cursor-pointer">
           {navSlider ? (
-            <i className="fa-solid fa-x text-xl"></i>
+            <X className="w-6 h-6 hover:text-main" />
           ) : (
-            <i className="fa-solid fa-bars text-xl"></i>
+            <TextAlignJustify className="w-6 h-6" />
           )}
         </div>
       </nav>
