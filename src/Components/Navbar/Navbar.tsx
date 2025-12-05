@@ -64,7 +64,7 @@ export default function Navbar() {
           <a
             className="w-28 btn border border-gray-800 text-white  hover:bg-lavender duration-300 hover:text-black"
             download
-            href="https://drive.google.com/uc?export=download&id=12EhR9KXXWLd40-RyUX5DzflvRmzWmahm"
+            href="https://drive.google.com/uc?export=download&id=1veBA3NZX_DBOrpJhhYSwCQyl-BIF3jad"
           >
             <motion.div
               initial={{ y: 0 }}

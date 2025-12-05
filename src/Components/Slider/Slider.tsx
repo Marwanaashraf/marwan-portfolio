@@ -54,7 +54,7 @@ export default function Slider({ setNavSlider }: TSlider) {
               }}
               className="w-full btn my-2 bg-black border border-gray-600  text-white  hover:bg-lavender duration-200  hover:text-black"
               download
-              href="https://drive.google.com/uc?export=download&id=12EhR9KXXWLd40-RyUX5DzflvRmzWmahm"
+              href="https://drive.google.com/uc?export=download&id=1veBA3NZX_DBOrpJhhYSwCQyl-BIF3jad"
             >
               <motion.div
                 initial={{ y: 0 }}

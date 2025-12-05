@@ -4,8 +4,6 @@ import { ArrowDown, Download } from "lucide-react";
 import { divVariants } from "../../Constants/Motion";
 import { socilMediaIcons } from "../../Constants/SocialMediaIcons";
 
-
-
 export default function Home() {
   return (
     <section className="h-screen relative">
@@ -67,7 +65,7 @@ export default function Home() {
           transition={{ duration: 1, delay: 1.3 }}
           className="w-56 h-12  bg-gradient flex justify-center items-center rounded-lg text-lg font-semibold hover:scale-90 duration-200 space-x-2"
           download
-          href="https://drive.google.com/uc?export=download&id=12EhR9KXXWLd40-RyUX5DzflvRmzWmahm"
+          href="https://drive.google.com/uc?export=download&id=1veBA3NZX_DBOrpJhhYSwCQyl-BIF3jad"
         >
           <motion.div
             initial={{ y: 0 }}
@@ -115,7 +113,7 @@ export default function Home() {
           className="absolute bottom-28 left-1/2 text-2xl cursor-pointer group"
         >
           <ArrowDown className="w-8 h-8 text-gray-600" />
-        </motion.div> 
+        </motion.div>
       </Link>
     </section>
   );

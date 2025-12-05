@@ -1,4 +1,4 @@
-import watchoria from "../assets/projects/watchoria.png";
+import watchoria from "../assets/projects/watchit.png";
 import fresh from "../assets/projects/freshcart.png";
 import basket from "../assets/projects/basket.png";
 import fokir from "../assets/projects/fokir.png";
