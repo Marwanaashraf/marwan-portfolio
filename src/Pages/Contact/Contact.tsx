@@ -7,31 +7,33 @@ import toast, { Toaster } from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import Footer from "../../Components/Footer/Footer";
-import { ExternalLink,  Mail } from "lucide-react";
+import { ExternalLink, Loader, Mail, Send } from "lucide-react";
 import { divVariants } from "../../Constants/Motion";
-import { contactList, mediaList } from "../../Constants/Contact";
-
+import { contactList } from "../../Constants/Contact";
+import clsx from "clsx";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Contact() {
-  let [loading, setLoading] = useState<boolean>(false);
-  let initialValues: IContact = {
+  const isMobile = useMediaQuery("(max-width:768px)");
+  const [loading, setLoading] = useState<boolean>(false);
+  const initialValues: IContact = {
     name: "",
     email: "",
     subject: "",
     message: "",
   };
-  let validationSchema = Yup.object({
+  const validationSchema = Yup.object({
     name: Yup.string()
       .required("Name is required")
-      .min(3, "MinLength is 3Characters"),
+      .min(3, "MinLength is 3 Characters"),
     email: Yup.string()
       .required("Email is required")
       .email("Enter Valid Email"),
     subject: Yup.string().required("Subject is required"),
-    message: Yup.string().required("Please,leave me a message."),
+    message: Yup.string().required("Please, leave me a message."),
   });
 
-  let handleForm = (values: IContact) => {
+  const handleForm = (values: IContact) => {
     setLoading(true);
     emailjs
       .send(
@@ -64,7 +66,7 @@ export default function Contact() {
       });
   };
 
-  let formik = useFormik<IContact>({
+  const formik = useFormik<IContact>({
     initialValues,
     onSubmit: handleForm,
     validationSchema,
@@ -72,7 +74,7 @@ export default function Contact() {
   return (
     <>
       <Toaster position="top-center" />
-      <section className="contain py-10">
+      <section className="contain my-20">
         {/* header */}
         <motion.h2
           variants={divVariants}
@@ -88,85 +90,43 @@ export default function Contact() {
           projects.
         </p>
 
-        {/* cotact list */}
-        <div className="my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {/* email,phone,location */}
-          {contactList.map((item) => {
-            return (
-              <motion.div
-                variants={divVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.8, staggerChildren: 0.15 }}
-                key={item.name}
-                className="bg-slate-900 rounded-lg border border-sky-900 flex flex-col justify-center items-center space-y-2 p-5  font-semibold shadow-div"
-              >
-                <DivIcon className="w-16 h-16" icon={item.icon} />
-                <h3 className="text-2xl ">{item.name}</h3>
-                <p className="text-main">{item.contact}</p>
-                <p className="text-slate-400 font-normal">{item.desc}</p>
-              </motion.div>
-            );
-          })}
-          {/* github,linkedIn */}
-          {mediaList.map((item) => {
-            return (
-              <motion.div
-                variants={divVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 1, staggerChildren: 0.15 }}
-                key={item.name}
-                className="bg-slate-900 rounded-lg border border-sky-900 flex flex-col justify-center items-center space-y-2 p-5 font-semibold shadow-div"
-              >
-                <DivIcon className="w-16 h-16 text-main" icon={item.icon} />
-                <h3 className="text-2xl ">{item.name}</h3>
-                <p className="text-main">{item.contact}</p>
-                <p className="text-slate-400 font-normal">{item.desc}</p>
-                <button
-                  onClick={() => {
-                    window.open(item.link, "_blank");
-                  }}
-                  className="btn w-60 bg-black border border-sky-900"
-                >
-                  {" "}
-                  <ExternalLink className="w-4 h-4" /> <span>Visit Profile</span>
-                </button>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Contact form  */}
-        <motion.div
-          variants={divVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.9, staggerChildren: 0.15 }}
-          className="w-full md:w-[90%] mx-auto my-8 border border-sky-900 rounded-lg bg-slate-900 p-5"
-        >
-          <form onSubmit={formik.handleSubmit}>
-            {/* name,email */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 my-3">
-              <div>
-                <label htmlFor="name">Name</label>
+        <div className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-3 gap-4">
+          {/* Contact form  */}
+          <motion.div
+            variants={divVariants}
+            initial={{
+              y: isMobile ? 40 : 0,
+              x: isMobile ? 0 : -40,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.9, staggerChildren: 0.15 }}
+            className="border border-main/20 rounded-lg bg-gradient-to-tr dark:from-slate-900 dark:to-secondry/5  p-5 lg:col-span-3 xl:col-span-2 lg:order-1 order-2"
+          >
+            <form onSubmit={formik.handleSubmit}>
+              {/* name */}
+              <div className="">
+                <label htmlFor="name">Your Name</label>
                 <br />
                 <input
-                  className={
+                  className={clsx(
+                    "form-input w-full h-10 focus:border",
                     formik.errors.name && formik.touched.name
-                      ? "form-input w-full h-10 focus:border focus:border-red-600"
-                      : "form-input  w-full h-10 focus:border focus:border-main"
-                  }
+                      ? "focus:border-red-600"
+                      : "focus:border-main"
+                  )}
                   type="text"
                   name="name"
                   id="name"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
-                  placeholder="Enter your Name"
+                  placeholder="Ali"
                 />
                 {formik.errors.name && formik.touched.name ? (
                   <p className="text-red-600">{formik.errors.name}</p>
@@ -174,22 +134,24 @@ export default function Contact() {
                   ""
                 )}
               </div>
-              <div>
-                <label htmlFor="email">Email</label>
+              {/* email */}
+              <div className="my-3">
+                <label htmlFor="email">Your Email</label>
                 <br />
                 <input
-                  className={
+                  className={clsx(
+                    "form-input w-full h-10 focus:border",
                     formik.errors.email && formik.touched.email
-                      ? "form-input w-full h-10 focus:border focus:border-red-600"
-                      : "form-input  w-full h-10 focus:border focus:border-main"
-                  }
+                      ? "focus:border-red-600"
+                      : "focus:border-main"
+                  )}
                   type="email"
                   name="email"
                   id="email"
                   value={formik.values.email}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  placeholder="Enter your Email"
+                  placeholder="ali@example.com"
                 />
                 {formik.errors.email && formik.touched.email ? (
                   <p className="text-red-600">{formik.errors.email}</p>
@@ -197,74 +159,125 @@ export default function Contact() {
                   ""
                 )}
               </div>
-            </div>
-            {/* subject */}
-            <div className="my-3">
-              <label htmlFor="subject">Subject</label>
-              <br />
-              <input
-                className={
-                  formik.errors.subject && formik.touched.subject
-                    ? "form-input w-full h-10 focus:border focus:border-red-600"
-                    : "form-input  w-full h-10 focus:border focus:border-main"
-                }
-                type="text"
-                name="subject"
-                id="subject"
-                value={formik.values.subject}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="Enter your Subject"
-              />
-              {formik.errors.subject && formik.touched.subject ? (
-                <p className="text-red-600">{formik.errors.subject}</p>
-              ) : (
-                ""
-              )}
-            </div>
-            {/* message */}
-            <div className="my-3">
-              <label htmlFor="message">Message</label>
-              <br />
-              <textarea
-                className={
-                  formik.errors.message && formik.touched.message
-                    ? "form-input w-full h-14 py-1 focus:border focus:border-red-600"
-                    : "form-input w-full h-16 py-1 focus:border focus:border-main"
-                }
-                value={formik.values.message}
-                name="message"
-                id="message"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="Enter your Message"
-              />
-              {formik.errors.message && formik.touched.message ? (
-                <p className="text-red-600">{formik.errors.message}</p>
-              ) : (
-                ""
-              )}
-            </div>
-            {loading ? (
-              <button
-                type="button"
-                disabled
-                className="btn text-base items-center bg-main w-36 "
-              >
-                <i className="fa-solid fa-spin fa-spinner text-lg"></i>{" "}
-                <span>Sending</span>
-              </button>
-            ) : (
+
+              {/* subject */}
+              <div className="my-3">
+                <label htmlFor="subject">Subject</label>
+                <br />
+                <input
+                  className={clsx(
+                    "form-input w-full h-10 focus:border",
+                    formik.errors.subject && formik.touched.subject
+                      ? "focus:border-red-600"
+                      : "focus:border-main"
+                  )}
+                  type="text"
+                  name="subject"
+                  id="subject"
+                  value={formik.values.subject}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder="What do you want to discuss"
+                />
+                {formik.errors.subject && formik.touched.subject ? (
+                  <p className="text-red-600">{formik.errors.subject}</p>
+                ) : (
+                  ""
+                )}
+              </div>
+              {/* message */}
+              <div className="my-3">
+                <label htmlFor="message">Your Message</label>
+                <br />
+                <textarea
+                  className={clsx(
+                    "form-input w-full h-24 py-1 focus:border",
+                    formik.errors.message && formik.touched.message
+                      ? " focus:border-red-600"
+                      : "focus:border-main"
+                  )}
+                  value={formik.values.message}
+                  name="message"
+                  id="message"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.errors.message && formik.touched.message ? (
+                  <p className="text-red-600">{formik.errors.message}</p>
+                ) : (
+                  ""
+                )}
+              </div>
               <button
                 type="submit"
-                className="btn text-base items-center bg-main w-36 "
+                disabled={loading}
+                className="flex justify-center items-center gap-2 text-lg py-2 rounded-lg bg-gradient-to-r from-main to-secondry w-full hover:scale-[1.01] duration-500 disabled:opacity-50 disabled:cursor-not-allowed text-white"
               >
-                <Mail className="w-4 h-4"/>
-                <span>Send Message</span>
+                {loading ? (
+                  <>
+                    <Loader className="w-4 h-4 animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
-            )}
-          </form>
-        </motion.div>
+            </form>
+          </motion.div>
+
+          {/* contact info */}
+          <div
+            className="border border-main/20 rounded-lg p-5 
+          lg:col-span-2 xl:col-span-1 lg:order-2 order-1"
+          >
+            <div className="flex items-center gap-2">
+              {/* header */}
+              <div className="w-1 h-7 rounded-lg bg-gradient-to-b from-main to-secondry"></div>
+              <h3 className="text-gradient font-bold text-2xl">Contact Info</h3>
+            </div>
+            <div className="my-5 space-y-4">
+              {contactList.map((ele, i) => {
+                return (
+                  <motion.div
+                    initial={{ x: -5, y: 20, opacity: 0 }}
+                    whileInView={{ x: 0, y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 1,
+                      delay: 0.5 * i,
+                    }}
+                    onClick={() => {
+                      if (!ele.link) return;
+                      else window.open(ele.link);
+                    }}
+                    className="flex gap-3 items-center hover:bg-slate-100 dark:hover:bg-slate-900 rounded-lg p-2 cursor-pointer duration-150 group"
+                  >
+                    {/* icon */}
+                    <div className="size-10 rounded-lg bg-gradient-to-tr from-card_light dark:from-card_dark to-secondry/10 dark:to-secondry/20 flex justify-center items-center group-hover:skew-y-3 group-hover:scale-110 duration-150">
+                      {ele.icon}
+                    </div>
+
+                    {/* details */}
+                    <div className="font-semibold">
+                      {/* name */}
+                      <span className="text-gray-400 uppercase  text-xs ">
+                        {ele.name}
+                      </span>
+
+                      {/* contact */}
+                      <p className="text-sm group-hover:text-main duration-150">
+                        {ele.contact}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </section>
       {/* footer */}
       <Footer />

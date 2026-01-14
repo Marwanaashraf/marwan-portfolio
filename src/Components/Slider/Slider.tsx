@@ -17,16 +17,16 @@ export default function Slider({ setNavSlider }: TSlider) {
     });
   }, []);
   return (
-    <div className="nav-slider block lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-black/80 z-20">
+    <div className="nav-slider block lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-black/75 z-20">
       <div className="relative w-[98%] mx-auto h-full">
-        <div className="inner-slider bg-slate-900 w-full absolute top-[12%] p-5">
+        <div className="inner-slider bg-slate-50 dark:bg-slate-900 w-full absolute top-[12%] p-5">
           {/* links */}
           <ul className="my-3 list-none flex flex-col space-y-5 justify-evenly text-lg">
             {links.map((link, i) => {
               return (
                 <li
                   key={i}
-                  className="text-slate-400 hover:text-main font-semibold cursor-pointer"
+                  className="hover:text-main font-semibold cursor-pointer"
                 >
                   <Link
                     to={link.href}
@@ -45,16 +45,16 @@ export default function Slider({ setNavSlider }: TSlider) {
               );
             })}
           </ul>
-          <hr className="border-sky-900" />
+          <hr className="border-sky-900 my-3" />
           <div className="space-y-1">
             {/* download cv */}
             <a
               onClick={() => {
                 setNavSlider(false);
               }}
-              className="w-full btn my-2 bg-black border border-gray-600  text-white  hover:bg-lavender duration-200  hover:text-black"
+              className="w-full btn my-2 bg-black border border-gray-600  text-white  hover:bg-secondry duration-200  hover:text-black"
               download
-              href="https://drive.google.com/uc?export=download&id=1veBA3NZX_DBOrpJhhYSwCQyl-BIF3jad"
+          href="https://drive.google.com/uc?export=download&id=1XAHJzfGu94rHozaXcmcwbt5VBL-uM6DD"
             >
               <motion.div
                 initial={{ y: 0 }}
@@ -76,7 +76,7 @@ export default function Slider({ setNavSlider }: TSlider) {
                 setNavSlider(false);
               }}
             >
-              <button className="w-full btn bg-main ">Let's talk</button>
+              <button className="w-full btn bg-main text-white">Let's talk</button>
             </Link>
           </div>
         </div>

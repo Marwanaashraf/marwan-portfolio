@@ -2,9 +2,10 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, Zap } from "lucide-react";
 import { divVariants } from "../../Constants/Motion";
 import { projectsList } from "../../Constants/Projects";
+import clsx from "clsx";
 export default function Projects() {
   return (
-    <section className="py-10 contain">
+    <section className="my-20 contain">
       {/* header */}
       <motion.h2
         variants={divVariants}
@@ -17,7 +18,7 @@ export default function Projects() {
       </motion.h2>
 
       {/* projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10 gap-3 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-16 gap-8 ">
         {/* projects */}
         {projectsList.map((project, i) => {
           return (
@@ -28,7 +29,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.8, staggerChildren: 0.15 }}
               key={i}
-              className="relative rounded-lg bg-slate-900 overflow-hidden hover:scale-95 cursor-default"
+              className="relative rounded-lg bg-card_light dark:bg-card_dark cursor-default shadow hover:-top-2 duration-500"
             >
               {/* image */}
               <img
@@ -37,22 +38,26 @@ export default function Projects() {
                 alt={project.name}
               />
               {/* details */}
-              <div className="p-3 space-y-3">
+              <div className="p-5 space-y-3">
                 {/* project Name */}
-                <h3 className="font-semibold text-2xl">{project.name}</h3>
+                <h3 className="font-semibold text-black dark:text-white text-2xl">
+                  {project.name}
+                </h3>
+
                 {/* project Description */}
                 <p className="text-slate-400 line-clamp-2">{project.desc}</p>
-                {/*  Tech stack*/}
+
+                {/* Tech stack*/}
                 <div className="text-sm uppercase font-semibold flex space-x-1 items-center">
                   <Zap className="w-4 h-4 text-main" />
-                  <span>Tech stack</span>
+                  <span className="text-black dark:text-white">Tech stack</span>
                 </div>
                 <div className="flex flex-wrap space-x-1">
                   {project.teshStack?.map((item) => {
                     return (
                       <div
                         key={item}
-                        className="w-fit h-8 p-3 my-1 rounded-full bg-slate-800 border border-sky-900 text-main text-sm flex justify-center items-center"
+                        className="w-fit h-6 p-3 my-1 rounded-full  dark:bg-card_dark border dark:border-sky-900 border-main/65 text-main text-sm  flex justify-center items-center"
                       >
                         <span>{item}</span>
                       </div>
@@ -69,16 +74,16 @@ export default function Projects() {
                       }}
                       className="btn text-sm bg-gradient text-black hover:border-main hover:bg-black/75   "
                     >
-                      <Github className="w-4 h-4" />{" "}
-                      <span>Source Code</span>{" "}
+                      <Github className="w-4 h-4" /> <span>Source Code</span>{" "}
                     </button>
                     <button
                       onClick={() => {
                         window.open(project.liveDemo, "_blank");
                       }}
-                      className="btn text-sm bg-black  border border-sky-900 hover:border-main hover:opacity-60  "
+                      className="btn text-sm bg-black  border border-sky-900 hover:border-main hover:opacity-80  text-white"
                     >
-                      <ExternalLink className="w-4 h-4"/> <span>Live Demo</span>{" "}
+                      <ExternalLink className="w-4 h-4" />{" "}
+                      <span>Live Demo</span>{" "}
                     </button>
                   </div>
                 ) : (
@@ -87,19 +92,21 @@ export default function Projects() {
                     onClick={() => {
                       window.open(project.liveDemo, "_blank");
                     }}
-                    className="btn text-sm bg-black w-full border border-sky-900 hover:border-main hover:opacity-60 cursor-not-allowed"
+                    className="btn text-sm bg-black/80 w-full border border-sky-900 hover:border-main hover:opacity-60 cursor-not-allowed"
                   >
-                    <ExternalLink className="w-4 h-4"/> <span>Coming soon </span>{" "}
+                    <ExternalLink className="w-4 h-4" />{" "}
+                    <span>Coming soon </span>{" "}
                   </button>
                 )}
 
                 {/* if completed or no  */}
                 <div
-                  className={
+                  className={clsx(
+                    "absolute top-1 right-2 w-fit h-3  flex justify-center items-center rounded-full p-3 space-x-1 text-xs font-semibold text-white",
                     project.status
-                      ? "absolute top-1 right-2 w-fit h-3  flex justify-center items-center rounded-full p-3 space-x-1 text-xs font-semibold bg-green-500 hover:bg-green-400"
-                      : "absolute top-1 right-2 w-fit h-3  flex justify-center items-center rounded-full p-3 space-x-1 text-xs font-semibold bg-orange-500 hover:bg-orange-400"
-                  }
+                      ? "bg-green-500 hover:bg-green-400"
+                      : "bg-orange-500 hover:bg-orange-400"
+                  )}
                 >
                   <motion.div
                     initial={{ opacity: 0.2 }}
@@ -122,7 +129,8 @@ export default function Projects() {
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.8 }}
-        className="my-8 w-full sm:w-[75%] md:w-[60%] lg:w-[50%] xl:w-[35%] h-52 mx-auto text-center flex flex-col justify-center items-center space-y-3 bg-slate-900 border border-sky-900 rounded-lg p-5"
+        className="my-8 w-full sm:w-[75%] md:w-[60%] lg:w-[50%] xl:w-[35%] h-52 mx-auto text-center flex flex-col justify-center items-center space-y-3 bg-gradient-to-tl to-card_light dark:to-card_dark from-secondry/15
+        border border-main/15 dark:border-sky-900 rounded-lg p-5"
       >
         <h3 className="text-gradient text-2xl font-semibold">
           Explore More Projects

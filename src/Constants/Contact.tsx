@@ -4,35 +4,35 @@ export const contactList = [
   {
     name: "Email",
     contact: "marwanelmaghraby45@gmail.com",
-    icon: <Mail className="w-6 h-6 text-main" />,
+    icon: <Mail className="w-5 h-5 text-main" />,
     desc: "Best way to reach me for opportunities",
+    link: "https://mail.google.com/mail/?view=cm&fs=1&to=marwanelmaghraby45@gmail.com",
   },
   {
     name: "Phone",
     contact: "+20 10 1165 8321",
-    icon: <Phone className="w-6 h-6 text-main" />,
+    icon: <Phone className="w-5 h-5 text-main" />,
     desc: "Available for quick discussions",
+    link: "tel:+201011658321",
   },
   {
     name: "Location",
     contact: "Cairo, Egypt",
-    icon: <MapPin className="w-6 h-6 text-main" />,
+    icon: <MapPin className="w-5 h-5 text-main" />,
     desc: "Open to remote and on-Site opportunities worldwide",
+    link: null,
   },
-];
-export const mediaList = [
   {
     name: "GitHub",
-    contact: "@Marwanaashraf",
-    icon: <Github className="w-7 h-7 text-main" />,
+    contact: "Marwanaashraf",
+    icon: <Github className="w-5 h-5 text-main" />,
     desc: "Check out my latest projects and contributions",
     link: "https://github.com/Marwanaashraf",
   },
   {
     name: "LinkedIn",
-    contact: "@marwan-ashraf-675078298",
-    icon: <Linkedin className="w-7 h-7 text-main" />,
-
+    contact: "marwan-ashraf-675078298",
+    icon: <Linkedin className="w-5 h-5 text-main" />,
     desc: "Let's connect professionally",
     link: "https://www.linkedin.com/in/marwan-ashraf-675078298/",
   },

@@ -1,4 +1,4 @@
-import watchoria from "../assets/projects/watchit.png";
+import watchoria from "../assets/projects/Watchoria (2).png";
 import fresh from "../assets/projects/freshcart.png";
 import basket from "../assets/projects/basket.png";
 import fokir from "../assets/projects/fokir.png";
@@ -47,7 +47,7 @@ export const projectsList = [
     status: true,
     image: watchoria,
 
-    teshStack: ["React", "Redux", "Tailwindcss", "Responsive Design", "Swiper"],
+    teshStack: ["React", "Redux", "Tailwindcss", "Supabase","cloudinary", "Swiper"],
   },
   {
     name: "Weather App",

@@ -5,9 +5,14 @@ module.exports = {
     extend: {
       colors: {
         main: "#29BFFF",
-        lavender: "#C66AFF",
+        secondry: "#C66AFF",
+        card_dark: "#0F172A",
+        card_light: "#F1F5F9",
+        dark:"#94A3B8",
+        light:"#4A5565"
       },
     },
   },
   plugins: [],
+  darkMode: "class",
 };

@@ -2,7 +2,7 @@ import { MapPin, Phone } from "lucide-react";
 import { socilMediaIcons } from "../../Constants/SocialMediaIcons";
 export default function Footer() {
   return (
-    <footer className="py-14 border-t border-sky-950">
+    <footer className="py-14 border-t border-main/30 dark:border-sky-950">
       {/* footer */}
       <div className="w-[80%] py-8 mx-auto">
         <div className="flex flex-wrap justify-between space-y-3">
@@ -26,7 +26,7 @@ export default function Footer() {
                 return (
                   <a
                     key={item.name}
-                    className="w-12 h-12 rounded-full flex justify-center items-center bg-slate-900 text-sky-500 hover:bg-slate-800 hover:scale-90 duration-100"
+                    className="w-12 h-12 rounded-full flex justify-center items-center bg-card_light dark:bg-card_dark text-sky-500 hover:bg-card_light/70 dark:hover:bg-card_dark/50 hover:scale-90 duration-100"
                     href={item.href}
                     target="_blank"
                   >
@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
 
       {/* copy rights */}
-      <div className="py-9 text-slate-400 text-center border-t border-sky-950">
+      <div className="py-9 text-slate-400 text-center border-t border-main/30 dark:border-sky-950">
         <p>Copy Right 2025 © By <span className="text-main">Marwan Ashraf</span> All Rights Reserved</p>
       </div>
     </footer>

@@ -3,7 +3,8 @@ import { link } from "../../Interfaces/link";
 import { Link } from "react-scroll";
 import Slider from "../Slider/Slider";
 import { motion } from "framer-motion";
-import { Download, TextAlignJustify, X } from "lucide-react";
+import { Download, Moon, Sun, TextAlignJustify, X } from "lucide-react";
+import clsx from "clsx";
 // links
 export const links: link[] = [
   { pathName: "Home", href: "home" },
@@ -14,16 +15,42 @@ export const links: link[] = [
   { pathName: "Contact", href: "contact" },
 ];
 export default function Navbar() {
+  enum Modes {
+    DARK = "dark",
+    LIGHT = "light",
+  }
+  const [mode, setMode] = useState(true);
   // slider
   let [navSlider, setNavSlider] = useState(false);
   let handleSlider = () => {
     if (navSlider) setNavSlider(false);
     else setNavSlider(true);
   };
-
+  const handleMode = () => {
+    if (mode === true) {
+      localStorage.setItem("mode", Modes.LIGHT);
+      document.querySelector("html")?.classList.remove("dark");
+      setMode(false);
+    } else {
+      localStorage.setItem("mode", Modes.DARK);
+      document.querySelector("html")?.classList.add("dark");
+      setMode(true);
+    }
+  };
+  useEffect(() => {
+    if (localStorage.getItem("mode") !== null) {
+      if (localStorage.getItem("mode") === Modes.DARK) {
+        document.querySelector("html")?.classList.add("dark");
+        setMode(true);
+      } else {
+        document.querySelector("html")?.classList.remove("dark");
+        setMode(false);
+      }
+    }
+  }, []);
   return (
     <section className="relative">
-      <nav className="fixed bg-slate-950 top-0 left-0 right-0 flex justify-between z-50 items-center p-5 border-b border-sky-900">
+      <nav className="fixed bg-card_light dark:bg-slate-950 top-0 left-0 right-0 flex justify-between z-50 items-center p-6 border-b border-main/10">
         {/* logo */}
         <Link
           onClick={() => {
@@ -59,38 +86,40 @@ export default function Navbar() {
           })}
         </ul>
         {/* resume , contact */}
-        <div className="hidden lg:flex space-x-3">
-          {/* resume */}
-          <a
-            className="w-28 btn border border-gray-800 text-white  hover:bg-lavender duration-300 hover:text-black"
-            download
-            href="https://drive.google.com/uc?export=download&id=1veBA3NZX_DBOrpJhhYSwCQyl-BIF3jad"
+        <div className="flex space-x-3">
+          {/* mode */}
+          <div
+            onClick={handleMode}
+            className={clsx(
+              "w-12 h-6 rounded-full border border-gray-300 dark:border-gray-700 flex  cursor-pointer hover:border-main hover:dark:border-main",
+              mode ? "justify-end" : "justify-start"
+            )}
           >
-            <motion.div
-              initial={{ y: 0 }}
-              animate={{ y: -3 }}
-              transition={{ duration: 0.6, repeat: Infinity }}
+            <div
+              className={clsx(
+                "size-[22px]  rounded-full flex justify-center items-center shadow ",
+                mode ? "bg-slate-800 text-white" : "bg-slate-200 text-black"
+              )}
             >
-              <Download className="w-4 h-4" />
-            </motion.div>
-            <span>Resume</span>
-          </a>
+              {mode ? (
+                <Moon className="w-4 h-4 " />
+              ) : (
+                <Sun className="w-4 h-4" />
+              )}
+            </div>
+          </div>
 
-          {/* contact */}
-          <Link smooth={true} to="contact" duration={600}>
-            <button className="bg-sky-400 w-20 btn  shadow-md ">
-              Let's talk
-            </button>
-          </Link>
-        </div>
-
-        {/* list */}
-        <div onClick={handleSlider} className="block lg:hidden cursor-pointer">
-          {navSlider ? (
-            <X className="w-6 h-6 hover:text-main" />
-          ) : (
-            <TextAlignJustify className="w-6 h-6" />
-          )}
+          {/* list */}
+          <div
+            onClick={handleSlider}
+            className="block lg:hidden cursor-pointer"
+          >
+            {navSlider ? (
+              <X className="w-6 h-6 hover:text-main" />
+            ) : (
+              <TextAlignJustify className="w-6 h-6" />
+            )}
+          </div>
         </div>
       </nav>
       {/* navSlider */}

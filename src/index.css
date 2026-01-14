@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 /* tags */
+/* #F9FAFB */
 body {
-  @apply bg-slate-950 text-white;
+  @apply bg-[#FFFFFF] dark:bg-[#05080F] text-light dark:text-white;
 }
 h2 {
   @apply text-gradient text-4xl md:text-5xl  font-bold capitalize relative text-center;
@@ -27,7 +28,7 @@ h5 {
 /* -------------------------------------- */
 /* Navbar */
 .nav-link {
-  @apply text-slate-400 font-semibold relative cursor-pointer hover:text-sky-500 duration-500;
+  @apply text-light dark:text-dark font-semibold relative cursor-pointer hover:text-sky-500 duration-500;
 }
 .active-link {
   @apply text-main;
@@ -40,25 +41,25 @@ h5 {
   top: 100%;
   left: 0;
   transition: all 0.5s;
-  @apply bg-gradient-to-r from-main to-lavender;
+  @apply bg-gradient-to-r from-main to-secondry;
 }
 .nav-link:hover::after {
   width: 100%;
 }
 .text-gradient {
-  @apply bg-gradient-to-r  from-main  to-lavender bg-clip-text text-transparent;
+  @apply bg-gradient-to-r  from-main  to-secondry bg-clip-text text-transparent;
 }
 .bg-gradient {
-  @apply bg-gradient-to-r from-main to-lavender;
+  @apply bg-gradient-to-r from-main to-secondry;
 }
 .bg-gradient:hover {
-  @apply bg-gradient-to-r from-lavender to-main;
+  @apply bg-gradient-to-r from-secondry to-main;
 }
 .form-input {
-  @apply bg-slate-800   px-3 rounded-lg focus:outline-none;
+  @apply bg-slate-50 dark:bg-slate-900 border border-main/10   px-3 rounded-lg focus:outline-none;
 }
 .btn {
-  @apply h-10 flex justify-center my-1 items-center space-x-1  rounded-lg hover:scale-90 duration-200 font-semibold;
+  @apply h-10 flex justify-center my-1 items-center space-x-1  rounded-lg hover:scale-[0.97] duration-200 font-semibold;
 }
 .btn:disabled {
   @apply opacity-60 cursor-not-allowed;
@@ -73,7 +74,7 @@ h5 {
   @apply w-2 bg-slate-800;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-main rounded-full hover:bg-lavender transition-all duration-700;
+  @apply bg-main rounded-full hover:bg-secondry transition-all duration-700;
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
