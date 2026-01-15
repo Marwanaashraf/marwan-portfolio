@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { link } from "../../Interfaces/link";
 import { Link } from "react-scroll";
 import Slider from "../Slider/Slider";
-import { motion } from "framer-motion";
-import { Download, Moon, Sun, TextAlignJustify, X } from "lucide-react";
+import { Moon, Sun, TextAlignJustify, X } from "lucide-react";
 import clsx from "clsx";
 // links
 export const links: link[] = [
@@ -14,25 +13,30 @@ export const links: link[] = [
   { pathName: "Education", href: "education" },
   { pathName: "Contact", href: "contact" },
 ];
+// modes
+enum Modes {
+  DARK = "dark",
+  LIGHT = "light",
+}
 export default function Navbar() {
-  enum Modes {
-    DARK = "dark",
-    LIGHT = "light",
-  }
+  // mode
   const [mode, setMode] = useState(true);
   // slider
   let [navSlider, setNavSlider] = useState(false);
-  let handleSlider = () => {
-    if (navSlider) setNavSlider(false);
-    else setNavSlider(true);
-  };
+
+  // handle mode(light , dark)
   const handleMode = () => {
     if (mode === true) {
+      // set localStorage "light"
       localStorage.setItem("mode", Modes.LIGHT);
+      // set html tag "light"
       document.querySelector("html")?.classList.remove("dark");
+
       setMode(false);
     } else {
+      // set localStorage "Dark"
       localStorage.setItem("mode", Modes.DARK);
+      // set html tag "Dark"
       document.querySelector("html")?.classList.add("dark");
       setMode(true);
     }
@@ -40,16 +44,18 @@ export default function Navbar() {
   useEffect(() => {
     if (localStorage.getItem("mode") !== null) {
       if (localStorage.getItem("mode") === Modes.DARK) {
+        // set html tag "Dark"
         document.querySelector("html")?.classList.add("dark");
         setMode(true);
       } else {
+        // remove html tag "Dark"
         document.querySelector("html")?.classList.remove("dark");
         setMode(false);
       }
     }
   }, []);
   return (
-    <section className="relative">
+    <section aria-label="Navbar" className="relative">
       <nav className="fixed bg-card_light dark:bg-slate-950 top-0 left-0 right-0 flex justify-between z-50 items-center p-6 border-b border-main/10">
         {/* logo */}
         <Link
@@ -65,6 +71,7 @@ export default function Navbar() {
             MA
           </div>
         </Link>
+
         {/* links */}
         <ul className="list-none hidden justify-evenly w-[55%] lg:flex">
           {links.map((link, i) => {
@@ -85,7 +92,8 @@ export default function Navbar() {
             );
           })}
         </ul>
-        {/* resume , contact */}
+
+        {/* mode , slide */}
         <div className="flex space-x-3">
           {/* mode */}
           <div
@@ -110,16 +118,19 @@ export default function Navbar() {
           </div>
 
           {/* list */}
-          <div
-            onClick={handleSlider}
+          <button
+            aria-label="Open or close slider"
+            onClick={() => {
+              navSlider ? setNavSlider(false) : setNavSlider(true);
+            }}
             className="block lg:hidden cursor-pointer"
           >
             {navSlider ? (
-              <X className="w-6 h-6 hover:text-main" />
+              <X className="w-6 h-6 hover:text-main" aria-label="x icon" />
             ) : (
-              <TextAlignJustify className="w-6 h-6" />
+              <TextAlignJustify className="w-6 h-6" aria-label="List icon"/>
             )}
-          </div>
+          </button>
         </div>
       </nav>
       {/* navSlider */}

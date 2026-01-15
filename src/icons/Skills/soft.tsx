@@ -10,6 +10,7 @@ export let TeamIcon = () => {
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
       className="w-6 h-6 text-main"
+      aria-label="Team icon"
     >
       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
       <circle cx="9" cy="7" r="4"></circle>
@@ -30,6 +31,7 @@ export let ProblemIcon = () => {
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
       className="w-6 h-6 text-main"
+      aria-label="Problem icon"
     >
       <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path>
       <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path>
@@ -55,6 +57,8 @@ export let ProjectIcon = () => {
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
       className="w-6 h-6 text-main"
+            aria-label="Project icon"
+
     >
       <path d="M12 7v14"></path>
       <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path>

@@ -5,7 +5,7 @@ import { projectsList } from "../../Constants/Projects";
 import clsx from "clsx";
 export default function Projects() {
   return (
-    <section className="my-20 contain">
+    <section aria-label="Projects section" className="my-20 contain">
       {/* header */}
       <motion.h2
         variants={divVariants}
@@ -18,7 +18,7 @@ export default function Projects() {
       </motion.h2>
 
       {/* projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-16 gap-8 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-20 gap-8 ">
         {/* projects */}
         {projectsList.map((project, i) => {
           return (
@@ -27,16 +27,17 @@ export default function Projects() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.8, staggerChildren: 0.15 }}
+              transition={{ duration: 1, delay: 0.8 }}
               key={i}
-              className="relative rounded-lg bg-card_light dark:bg-card_dark cursor-default shadow hover:-top-2 duration-500"
+              className="relative rounded-lg bg-card_light dark:bg-card_dark cursor-default shadow hover:-top-2 duration-500 group overflow-hidden"
             >
               {/* image */}
               <img
-                className="w-full overflow-hidden rounded-t-lg duration-500"
+                className="w-full overflow-hidden rounded-t-lg duration-500 group-hover:scale-105"
                 src={project.image}
                 alt={project.name}
               />
+
               {/* details */}
               <div className="p-5 space-y-3">
                 {/* project Name */}
@@ -45,15 +46,15 @@ export default function Projects() {
                 </h3>
 
                 {/* project Description */}
-                <p className="text-slate-400 line-clamp-2">{project.desc}</p>
+                <p className="text-slate-400 line-clamp-3">{project.desc}</p>
 
-                {/* Tech stack*/}
+                {/* Tech stack */}
                 <div className="text-sm uppercase font-semibold flex space-x-1 items-center">
-                  <Zap className="w-4 h-4 text-main" />
+                  <Zap className="w-4 h-4 text-main" aria-label="Zap icon" />
                   <span className="text-black dark:text-white">Tech stack</span>
                 </div>
                 <div className="flex flex-wrap space-x-1">
-                  {project.teshStack?.map((item) => {
+                  {project.techStack.map((item) => {
                     return (
                       <div
                         key={item}
@@ -65,41 +66,54 @@ export default function Projects() {
                   })}
                 </div>
 
-                {/* liveDemo sourceCode */}
+                {/* liveDemo, github */}
                 {project.status ? (
                   <div className="grid grid-cols-2 gap-3 items-center">
+                    {/* github */}
                     <button
+                      aria-label="View github"
                       onClick={() => {
                         window.open(project.srcCode, "_blank");
                       }}
                       className="btn text-sm bg-gradient text-black hover:border-main hover:bg-black/75   "
                     >
-                      <Github className="w-4 h-4" /> <span>Source Code</span>{" "}
+                      <Github className="w-4 h-4" aria-label="Github icon" />
+                      <span>Source Code</span>{" "}
                     </button>
+
+                    {/* live demo */}
                     <button
+                      aria-label="Live Demo"
                       onClick={() => {
                         window.open(project.liveDemo, "_blank");
                       }}
                       className="btn text-sm bg-black  border border-sky-900 hover:border-main hover:opacity-80  text-white"
                     >
-                      <ExternalLink className="w-4 h-4" />{" "}
+                      <ExternalLink
+                        className="w-4 h-4"
+                        aria-label="ExternalLink icon"
+                      />{" "}
                       <span>Live Demo</span>{" "}
                     </button>
                   </div>
                 ) : (
                   <button
+                    aria-label="Coming soon"
                     disabled
                     onClick={() => {
                       window.open(project.liveDemo, "_blank");
                     }}
                     className="btn text-sm bg-black/80 w-full border border-sky-900 hover:border-main hover:opacity-60 cursor-not-allowed"
                   >
-                    <ExternalLink className="w-4 h-4" />{" "}
+                    <ExternalLink
+                      className="w-4 h-4"
+                      aria-label="ExternalLink icon"
+                    />{" "}
                     <span>Coming soon </span>{" "}
                   </button>
                 )}
 
-                {/* if completed or no  */}
+                {/* if completed or not  */}
                 <div
                   className={clsx(
                     "absolute top-1 right-2 w-fit h-3  flex justify-center items-center rounded-full p-3 space-x-1 text-xs font-semibold text-white",
@@ -135,10 +149,14 @@ export default function Projects() {
         <h3 className="text-gradient text-2xl font-semibold">
           Explore More Projects
         </h3>
+
         <p className="text-slate-400">
           Discover my complete portfolio and open-source contributions.
         </p>
+
+        {/* github profile */}
         <button
+          aria-label="View github profile"
           onClick={() => {
             window.open(
               "https://github.com/Marwanaashraf?tab=repositories",
@@ -147,7 +165,8 @@ export default function Projects() {
           }}
           className="btn text-sm w-52 bg-main text-black hover:scale-95 duration-500"
         >
-          <Github className="w-4 h-4" /> <span>View Github profile</span>{" "}
+          <Github className="w-4 h-4" aria-label="github icon" />{" "}
+          <span>View Github profile</span>{" "}
         </button>
       </motion.div>
     </section>

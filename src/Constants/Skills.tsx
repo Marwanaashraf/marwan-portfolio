@@ -18,7 +18,7 @@ import {
   PostManIcon,
   PythonIcon,
   ReactIcon,
-  RedaxIcon,
+  ReduxIcon,
   SqlIcon,
   SupabaseIcon,
   TailwindIcon,
@@ -33,7 +33,7 @@ export const skills: ISkill[] = [
   { name: "TypeScript", category: "Programming Languages", icon: <TsIcon /> },
   { name: "JQuery", category: "Frontend", icon: <JQueryIcon /> },
   { name: "React.js", category: "Frontend", icon: <ReactIcon /> },
-  { name: "Redux", category: "Frontend", icon: <RedaxIcon /> },
+  { name: "Redux", category: "Frontend", icon: <ReduxIcon /> },
   { name: "Framer Motion", category: "Frontend", icon: <FramerIcon /> },
   { name: "Next.js", category: "Frontend", icon: <NextIcon /> },
   { name: "Node.js", category: "Backend", icon: <NodeIcon /> },
@@ -50,22 +50,22 @@ export const skills: ISkill[] = [
   {
     name: "Team Communication",
     category: "Soft Skills",
-    icon: <Users className="w-6 h-6 text-main" />,
+    icon: <Users className="w-6 h-6 text-main" aria-label="Users icon" />,
   },
   {
     name: "Problem Solving",
     category: "Soft Skills",
-    icon: <Brain className="w-6 h-6 text-main" />,
+    icon: <Brain className="w-6 h-6 text-main" aria-label="Brain icon" />,
   },
   {
     name: "Project Planning",
     category: "Soft Skills",
-    icon: <BookOpen className="w-6 h-6 text-main" />,
+    icon: <BookOpen className="w-6 h-6 text-main" aria-label="BookOpen icon" />,
   },
   {
     name: "Time Management",
     category: "Soft Skills",
-    icon: <Timer className="w-6 h-6 text-main" />,
+    icon: <Timer className="w-6 h-6 text-main" aria-label="Timer icon" />,
   },
 ];
 // categories

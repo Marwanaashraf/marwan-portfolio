@@ -36,7 +36,7 @@ export default function Skills() {
   };
 
   return (
-    <section className="my-20 contain">
+    <section aria-label="Skills section" className="my-20 contain">
       {/* header */}
       <motion.h2
         variants={divVariants}
@@ -62,7 +62,7 @@ export default function Skills() {
       >
         {skillsCategory.map((item, i) => {
           return (
-            <div
+            <button
               onClick={() => {
                 handleSkills(item);
               }}
@@ -75,9 +75,9 @@ export default function Skills() {
                   : "border hover:bg-card_light hover:dark:bg-card_dark border-main/40 hover:text-main hover:border-main"
               )}
             >
-              <CodeXml className="w-5 h-5" />
+              <CodeXml aria-label="code icon" className="w-5 h-5" />
               <span>{item}</span>
-            </div>
+            </button>
           );
         })}
       </motion.div>
@@ -113,7 +113,7 @@ export default function Skills() {
               </h6>
 
               {/* skill's category */}
-              <p className="text-slate-500 dark:text-slate-400 text-sm">
+              <p className="text-slate-500 dark:text-slate-400 text-sm text-center">
                 {skill.category}
               </p>
             </motion.div>

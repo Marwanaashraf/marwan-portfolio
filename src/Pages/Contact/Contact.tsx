@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import DivIcon from "../../Components/DivIcon/DivIcon";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { IContact } from "../../Interfaces/Icontact";
@@ -7,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import Footer from "../../Components/Footer/Footer";
-import { ExternalLink, Loader, Mail, Send } from "lucide-react";
+import { Loader, Send } from "lucide-react";
 import { divVariants } from "../../Constants/Motion";
 import { contactList } from "../../Constants/Contact";
 import clsx from "clsx";
@@ -54,7 +53,6 @@ export default function Contact() {
         });
       })
       .catch((err) => {
-        console.log(err);
         setLoading(false);
         toast.error("Faild, pleace send again", {
           style: {
@@ -74,7 +72,7 @@ export default function Contact() {
   return (
     <>
       <Toaster position="top-center" />
-      <section className="contain my-20">
+      <section aria-label="ContactMe Setion" className="contain my-20">
         {/* header */}
         <motion.h2
           variants={divVariants}
@@ -215,12 +213,12 @@ export default function Contact() {
               >
                 {loading ? (
                   <>
-                    <Loader className="w-4 h-4 animate-spin" />
+                    <Loader className="w-4 h-4 animate-spin" aria-label="Loader icon" />
                     <span>Sending...</span>
                   </>
                 ) : (
                   <>
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4" aria-label="Send icon"/>
                     <span>Send Message</span>
                   </>
                 )}

@@ -8,13 +8,23 @@ import weather from "../assets/projects/Weather.png";
 import lms from "../assets/projects/lms.png";
 export const projectsList = [
   {
+    name: "Watchoria",
+    desc: "A responsive movie and TV show web app browsing, searching, and viewing detailed content with trailers. Features trending titles, watchlist and ratings with secure per-user storage using Supabase.",
+    srcCode: "https://github.com/Marwanaashraf/watchoria",
+    liveDemo: "https://watchoria.vercel.app/",
+    status: true,
+    image: watchoria,
+
+    techStack: ["React", "Redux", "Tailwindcss", "Supabase","cloudinary", "Swiper"],
+  },
+  {
     name: "Fresh Cart",
-    desc: "A full-featured e-commerce website using React that allows users to browse products by categories and brands. Users can view product details, add items to their wishlist or shopping cart, and proceed to checkout with both cash and card payment options. The platform also enables users to track their orders and view detailed order information, and efficient state management using React hooks(Context).",
+    desc: "A full-featured e-commerce website enabling users to browse products by category or brand, view details, and manage carts and wishlists. Supports cash and card payments and order tracking",
     srcCode: "https://github.com/Marwanaashraf/E-commerce",
     liveDemo: "https://e-commerce-sage-nine-94.vercel.app/",
     status: true,
     image: fresh,
-    teshStack: [
+    techStack: [
       "React",
       "BootStrap",
       "Responsive Design",
@@ -30,7 +40,7 @@ export const projectsList = [
     liveDemo: "https://lms-lilac-nu.vercel.app/",
     status: true,
     image: lms,
-    teshStack: [
+    techStack: [
       "Next.js",
       "TypeScript",
       "Tailwindcss",
@@ -40,40 +50,14 @@ export const projectsList = [
     ],
   },
   {
-    name: "Watchoria",
-    desc: "A fully responsive movie and TV show web application built using React, Tailwind CSS, and Redux, The platform allows users to browse and search for movies and TV shows, view detailed movie information with trailers, and explore TV show pages including seasons and episodes, It features a trending section to highlight popular titles. State management is handled efficiently using Redux, ensuring smooth and dynamic user interactions across the app.",
-    srcCode: "https://github.com/Marwanaashraf/watchoria",
-    liveDemo: "https://watchoria.vercel.app/",
-    status: true,
-    image: watchoria,
-
-    teshStack: ["React", "Redux", "Tailwindcss", "Supabase","cloudinary", "Swiper"],
-  },
-  {
-    name: "Weather App",
-    desc: "A fully responsive movie and TV show web application built using React, Tailwind CSS, and Redux, The platform allows users to browse and search for movies and TV shows, view detailed movie information with trailers, and explore TV show pages including seasons and episodes, It features a trending section to highlight popular titles. State management is handled efficiently using Redux, ensuring smooth and dynamic user interactions across the app.",
-    srcCode: "",
-    liveDemo: "",
-    status: false,
-    image: weather,
-
-    teshStack: [
-      "React",
-      "Tailwindcss",
-      "Responsive Design",
-      "Swiper",
-      "react-query",
-    ],
-  },
-  {
     name: "Basket Shop",
-    desc: "A full-stack responsive E-commerce application built with Supabase and React.js. It features product display with advanced filtering (category, brand, price, stock) and search by name. Users can add items to a wishlist, manage a shopping cart, and complete checkout. The platform also includes a contact form for inquiries and leverages React Context API for efficient state management.",
+    desc: "Built a responsive full-stack e-commerce application, enabling advanced product filtering, search, and seamless browsing. Implemented wishlist, shopping cart, checkout flow and contact form",
     srcCode: "https://github.com/Marwanaashraf/Basket-shop",
     liveDemo: "https://basket-shop-three.vercel.app/",
     status: true,
     image: basket,
 
-    teshStack: [
+    techStack: [
       "Full Stack",
       "React",
       "Supabase",
@@ -84,15 +68,15 @@ export const projectsList = [
       "yup",
     ],
   },
-  {
+   {
     name: "Dunkin' Donuts",
-    desc: "The project integrates Supabase to manage and fetch dynamic menu data, ensuring scalability and flexibility. It showcases the Dunkin’ Donuts menu with category filtering, displays all branches across Egypt, and highlights the brand’s history. The website also supports Dark Mode.",
+    desc: "Integrated Supabase to manage dynamic menu data, ensuring scalability and flexibility across the platform.Showcases the Dunkin’ Donuts menu with category filtering, branch locations across Egypt, brand history, and Dark Mode support.",
     srcCode: "https://github.com/Marwanaashraf/dunkin-donuts",
     liveDemo: "https://dunkin-donuts-tawny.vercel.app/",
     status: true,
     image: dunkin,
 
-    teshStack: [
+    techStack: [
       "React",
       "Supabase",
       "Tailwindcss",
@@ -104,14 +88,32 @@ export const projectsList = [
     ],
   },
   {
+    name: "Weather App",
+    desc: "Developed a responsive weather application that allows users to search for any city and view real-time weather conditions, hourly forecasts, and a 7-day outlook. Integrated a weather API with a clean, user-friendly interface for accurate and seamless weather tracking.",
+    srcCode: "",
+    liveDemo: "",
+    status: false,
+    image: weather,
+
+    techStack: [
+      "React",
+      "Tailwindcss",
+      "Responsive Design",
+      "Swiper",
+      "react-query",
+    ],
+  },
+  
+ 
+  {
     name: "Yummy",
-    desc: "Built a recipe search application using HTML, CSS, JavaScript,Jquery and external meal APIs to fetch real-time food data,Users can search meals by name, ingredient, or category, and view detailed recipes and images,Emphasized responsive design and smooth user interactions for a pleasant experience across devices.",
+    desc: "Built a responsive recipe search application using HTML, CSS, JavaScript, jQuery, and external meal APIs to fetch real-time data.  Enabled meal search by name, ingredient, or category with detailed recipes, images, and smooth user interactions",
     srcCode: "https://github.com/Marwanaashraf/yummy",
     liveDemo: "https://marwanaashraf.github.io/yummy/",
     status: true,
     image: yummy,
 
-    teshStack: [
+    techStack: [
       "HTML",
       "CSS",
       "Js",
@@ -122,13 +124,13 @@ export const projectsList = [
   },
   {
     name: "Fokir",
-    desc: "Fokir is a responsive website developed using HTML, CSS, JavaScript, Bootstrap, and jQuery. The project showcases practical implementation of core JavaScript concepts such as DOM manipulation, event handling, and interactive UI behavior. It demonstrates a strong grasp of frontend development principles and clean, structured code.",
+    desc: "Developed a responsive website using HTML, CSS, JavaScript, Bootstrap, and jQuery. Demonstrates core JavaScript concepts including DOM manipulation, event handling, interactive UI behavior, and clean, structured code.",
     srcCode: "https://github.com/Marwanaashraf/Fokir",
     liveDemo: "https://marwanaashraf.github.io/Fokir/",
     status: true,
     image: fokir,
 
-    teshStack: [
+    techStack: [
       "HTML",
       "CSS",
       "Js",

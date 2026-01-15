@@ -54,9 +54,12 @@ export default function Home() {
           transition={{ duration: 1, delay: 1.3 }}
           className="flex space-x-5"
         >
+          {/* view my work : navigte to projects */}
           <Link offset={-80} smooth={true} to="projects" duration={600}>
-            {/* view my work : navigte to projects */}
-            <button className="btn w-40 bg-main/90 hover:scale-95 text-white text-lg hover:shadow-lg hover:shadow-main/50">
+            <button
+              aria-label="view my work"
+              className="btn w-40 bg-main/90 hover:scale-95 text-white text-lg hover:shadow-lg hover:shadow-main/50"
+            >
               View My work
             </button>
           </Link>
@@ -64,6 +67,7 @@ export default function Home() {
           {/* Get In Touch : navigte to contact */}
           <Link offset={-80} smooth={true} to="contact" duration={600}>
             <button
+              aria-label="navigte to contact section"
               className="btn w-40 bg-black border border-main/70 hover:bg-purple-500 hover:scale-95 text-white text-lg
           "
             >
@@ -80,6 +84,7 @@ export default function Home() {
           transition={{ duration: 1, delay: 1.3 }}
           className="w-56 h-12  bg-gradient flex justify-center items-center rounded-lg text-lg font-semibold hover:scale-90 duration-200 space-x-2 text-white"
           download
+          aria-label="download cv"
           href="https://drive.google.com/uc?export=download&id=1XAHJzfGu94rHozaXcmcwbt5VBL-uM6DD"
         >
           <motion.div
@@ -128,7 +133,10 @@ export default function Home() {
           transition={{ duration: 1, repeat: Infinity }}
           className="absolute bottom-28 left-1/2 text-2xl cursor-pointer group"
         >
-          <ArrowDown className="w-8 h-8 text-slate-500 dark:text-slate-300 " />
+          <ArrowDown
+            aria-label="arrow icon"
+            className="w-8 h-8 text-slate-500 dark:text-slate-300 "
+          />
         </motion.div>
       </Link>
     </section>

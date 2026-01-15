@@ -10,10 +10,10 @@ export default function Footer() {
           <div className="space-y-3 w-full md:w-fit">
             <h1 className="text-gradient text-3xl font-bold">Marwan Ashraf</h1>
             <div className="flex space-x-1 items-center">
-              <MapPin className="w-4 h-4 text-main" /> <span>Cairo, Egypt</span>{" "}
+              <MapPin className="w-4 h-4 text-main" aria-label="MapPin icon" /> <span>Cairo, Egypt</span>{" "}
             </div>
             <div className="flex space-x-1 items-center">
-              <Phone className="w-4 h-4 text-main" />{" "}
+              <Phone className="w-4 h-4 text-main" aria-label="Phone icon"/>{" "}
               <span>Available for remote Work</span>{" "}
             </div>
           </div>
