@@ -23,12 +23,6 @@ export let containerAnimate = {
   },
 };
 export let childrensAnimate = {
-  hidden: {
-    y: 30,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
+  // hidden: ,
+  // visible:
 };

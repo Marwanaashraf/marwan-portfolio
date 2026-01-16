@@ -76,6 +76,7 @@ export default function About() {
         {aboutList.map((ele, i) => {
           return (
             <motion.div
+              key={i}
               initial={{ x: 10, y: 10 }}
               whileInView={{ x: -10, y: -10 }}
               transition={{

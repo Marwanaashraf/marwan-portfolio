@@ -30,7 +30,7 @@ export default function Skills() {
       let result = skills.filter((item) => item.category === category);
       // set new skills data
       setDisplayedSkills(result);
-      // active category 
+      // active category
       setActiveCategry(category);
     }
   };
@@ -90,35 +90,38 @@ export default function Skills() {
         viewport={{ once: true }}
         className="grid grid-cols-2 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 gap-3 w-[85%] mx-auto"
       >
-        <AnimatePresence mode="wait">
-          {displayedSkills.map((skill) => (
-            <motion.div
-              key={skill.name}
-              variants={childrensAnimate}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0, y: 20 }}
-              layout
-              className="hover:shadow-lg hover:shadow-main/20   w-full h-40 border border-main/15  dark:border-sky-950 bg-slate-100 dark:bg-card_dark rounded-lg flex flex-col space-y-2 justify-center items-center p-3 hover:-translate-y-3 transition-all duration-300 group"
-            >
-              {/* skill's icon */}
-              <DivIcon
-                className="w-14 h-14 group-hover:scale-110 duration-300"
-                icon={skill.icon}
-              />
+        {displayedSkills.map((skill) => (
+          <motion.div
+            key={skill.name}
+            initial={{
+              y: 30,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            layout
+            className="hover:shadow-lg hover:shadow-main/20   w-full h-40 border border-main/15  dark:border-sky-950 bg-slate-100 dark:bg-card_dark rounded-lg flex flex-col space-y-2 justify-center items-center p-3 hover:-translate-y-3 transition-all duration-300 group"
+          >
+            {/* skill's icon */}
+            <DivIcon
+              className="w-14 h-14 group-hover:scale-110 duration-300"
+              icon={skill.icon}
+            />
 
-              {/* skill's name */}
-              <h6 className="font-semibold dark:text-white text-black">
-                {skill.name}
-              </h6>
+            {/* skill's name */}
+            <h6 className="font-semibold dark:text-white text-black">
+              {skill.name}
+            </h6>
 
-              {/* skill's category */}
-              <p className="text-slate-500 dark:text-slate-400 text-sm text-center">
-                {skill.category}
-              </p>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+            {/* skill's category */}
+            <p className="text-slate-500 dark:text-slate-400 text-sm text-center">
+              {skill.category}
+            </p>
+          </motion.div>
+        ))}
       </motion.div>
     </section>
   );

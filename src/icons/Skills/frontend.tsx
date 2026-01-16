@@ -93,7 +93,7 @@ export let NextIcon = () => {
     <svg
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       role="img"
       viewBox="0 0 24 24"
       className="w-6 h-6 text-main"
@@ -127,7 +127,7 @@ export let ReduxIcon = () => {
     <svg
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       role="img"
       viewBox="0 0 24 24"
       className="w-6 h-6 text-main"

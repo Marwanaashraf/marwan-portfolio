@@ -213,12 +213,15 @@ export default function Contact() {
               >
                 {loading ? (
                   <>
-                    <Loader className="w-4 h-4 animate-spin" aria-label="Loader icon" />
+                    <Loader
+                      className="w-4 h-4 animate-spin"
+                      aria-label="Loader icon"
+                    />
                     <span>Sending...</span>
                   </>
                 ) : (
                   <>
-                    <Send className="w-4 h-4" aria-label="Send icon"/>
+                    <Send className="w-4 h-4" aria-label="Send icon" />
                     <span>Send Message</span>
                   </>
                 )}
@@ -240,6 +243,7 @@ export default function Contact() {
               {contactList.map((ele, i) => {
                 return (
                   <motion.div
+                    key={i}
                     initial={{ x: -5, y: 20, opacity: 0 }}
                     whileInView={{ x: 0, y: 0, opacity: 1 }}
                     viewport={{ once: true }}
