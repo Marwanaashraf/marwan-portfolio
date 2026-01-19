@@ -117,6 +117,7 @@ export default function Home() {
                 className="size-12 rounded-full flex justify-center items-center bg-gradient-to-br from-slate-200 dark:from-slate-900 to-secondry/15 dark:to-secondry/20 text-main hover:to-secondry/25 hover:dark:to-secondry/25 hover:scale-90 transition-all duration-300"
                 href={item.href}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 {item.icon}
               </a>

@@ -16,7 +16,7 @@ export default function Slider({ setNavSlider }: TSlider) {
         setNavSlider(false);
       }
     });
-  }, []);
+  }, [setNavSlider]);
   return (
     <div aria-label="Slider" className="nav-slider block lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-black/75 z-20">
       <div className="relative w-[98%] mx-auto h-full">
