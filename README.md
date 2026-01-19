@@ -1,40 +1,84 @@
-# portfolio
+# 🚀 Marwan Ashraf – Portfolio Website
 
-A responsive personal portfolio website designed to highlight my projects, skills, educational background, and personal profile. The site features an interactive contact form and engaging animations implemented with Framer Motion to deliver a modern and dynamic user experience.
+A modern and responsive personal portfolio website built to showcase my skills, projects, and experience as a **Frontend Developer specialized in React**. The portfolio highlights clean UI design, smooth animations, dark mode support, and accessibility best practices.
 
-# Features
+---
 
-- Responsive design for desktop and mobile.
-- display my projects , skills , Education.
-- contact me form.
-- animation when scroll on website.
+## 🌐 Live Demo
 
-# Tools & Libraries
+🔗 [https://marwan-portfolio-gold.vercel.app/](https://marwan-portfolio-gold.vercel.app/)
 
-- React.js
-- Typescript
-- TailwindCSS
-- FontAwesome
-- framer motion
-- emailjs
-- formik
-- yup
-- react-hot-toast
+---
 
-# Setup & Installation
+## 🧩 Sections
 
-# 1. Clone the repository
+The website is divided into clear and structured sections:
 
-git clone https://github.com/Marwanaashraf/marwan-portfolio
+* **Home** – Introduction and hero section
+* **About** – Short summary about me and my background
+* **Skills** – Technical skills with animations
+* **Education** – Academic background and graduation project
+* **Projects** – Selected frontend projects with details
+* **Contact Me** – Contact information and social links
 
-# 2. Navigate to the project directory
+---
 
-cd marwan-portfolio
+## ✨ Features
 
-# 3. Install dependencies
+* ⚛️ Built with **React**
+* 🎨 Styled using **Tailwind CSS**
+* 🎞️ Smooth animations with **Framer Motion**
+* 🌙 **Dark / Light Mode** support
+* 📱 Fully **Responsive Design** (Mobile, Tablet, Desktop)
+* ♿ Improved **Accessibility** using aria-labels
+* ⚡ Fast performance and clean component structure
 
-npm install
+---
 
-# 4. Start the development server
+## 🛠️ Tech Stack
 
-npm start
+* **React.js**
+* **Tailwind CSS**
+* **Framer Motion**
+* **Lucide React Icons**
+* **Formik**
+* **Yup**
+* **Emailjs**
+
+---
+
+## 📁 Project Structure
+
+* `components/` – Reusable UI components
+* `pages/` – Main sections (Home, About, Skills, etc.)
+* `constants/` – Animation variants and helpers
+* `assets/` – Images and static files
+* `icons/` – icons used in skills section
+
+---
+
+## 🎯 Purpose
+
+This portfolio was created to:
+
+* Present my frontend development skills
+* Showcase real projects and UI quality
+* Provide an easy way for recruiters and clients to contact me
+
+---
+
+## 👨‍💻 About Me
+
+I am a **Frontend Developer** passionate about building modern, interactive, and user-friendly web applications using React and modern frontend tools. I focus on clean code, performance, and great user experience.
+
+---
+
+## 📬 Contact
+
+* 🌍 Portfolio: [https://marwan-portfolio-gold.vercel.app/](https://marwan-portfolio-gold.vercel.app/)
+* 💼 LinkedIn: https://www.linkedin.com/in/marwan-ashraf-675078298/
+* 📧 Email: marwanelmaghraby45@gmail.com
+
+---
+
+⭐ If you like this portfolio, feel free to star the repository and connect with me!

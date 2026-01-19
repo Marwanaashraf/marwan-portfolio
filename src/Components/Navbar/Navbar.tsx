@@ -56,7 +56,7 @@ export default function Navbar() {
   }, []);
   return (
     <section aria-label="Navbar" className="relative">
-      <nav className="fixed bg-card_light dark:bg-slate-950 top-0 left-0 right-0 flex justify-between z-50 items-center p-6 border-b border-main/10">
+      <nav className="fixed bg-card_light dark:bg-slate-950 top-0 left-0 right-0 flex justify-between z-50 items-center p-6 border-b border-main/20">
         {/* logo */}
         <Link
           onClick={() => {

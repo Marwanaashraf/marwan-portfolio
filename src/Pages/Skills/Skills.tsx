@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { ISkill } from "../../Interfaces/skills";
 import DivIcon from "../../Components/DivIcon/DivIcon";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { CodeXml } from "lucide-react";
 import { skills, skillsCategory } from "../../Constants/Skills";
-import {
-  childrensAnimate,
-  containerAnimate,
-  divVariants,
-} from "../../Constants/Motion";
+import { containerAnimate, divVariants } from "../../Constants/Motion";
 import clsx from "clsx";
 export default function Skills() {
   // displayed skills

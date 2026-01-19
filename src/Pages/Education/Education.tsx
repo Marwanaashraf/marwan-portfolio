@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Dot, GraduationCap, MapPin } from "lucide-react";
+import { Calendar, GraduationCap, MapPin } from "lucide-react";
 import { divVariants } from "../../Constants/Motion";
 export default function Education() {
   return (
