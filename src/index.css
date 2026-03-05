@@ -1,85 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* tags */
-/* #F9FAFB */
+
+/* -------------------------------
+   Base Styles
+-------------------------------- */
 body {
-  @apply bg-[#FFFFFF] dark:bg-[#05080F] text-light dark:text-white;
+  @apply bg-white dark:bg-[#05080F] text-light dark:text-white
+         transition-colors duration-300;
 }
-h2 {
-  @apply text-gradient text-4xl md:text-5xl  font-bold capitalize relative text-center;
-}
-h2::after {
-  content: "";
-  width: 90px;
-  height: 4px;
-  position: absolute;
-  top: 135%;
-  left: 47%;
-  border-radius: 10px;
-  @apply bg-gradient-to-r from-sky-500 to-purple-500;
-}
-h5 {
-  @apply text-3xl text-slate-400;
-}
-.contain {
+
+/* -------------------------------
+   Layout Utilities
+-------------------------------- */
+.section-container {
   @apply w-[90%] mx-auto;
 }
-/* -------------------------------------- */
-/* Navbar */
-.nav-link {
-  @apply text-light dark:text-dark font-semibold relative cursor-pointer hover:text-sky-500 duration-500;
+
+.section-head {
+  @apply relative mx-auto w-fit text-center font-bold capitalize
+         text-4xl md:text-5xl text-gradient;
 }
-.active-link {
-  @apply text-main;
+
+/* Divider */
+hr {
+  @apply border-main/30 dark:border-main/15 my-2;
 }
-.nav-link::after {
-  content: "";
-  width: 0%;
-  height: 2px;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  transition: all 0.5s;
-  @apply bg-gradient-to-r from-main to-secondry;
-}
-.nav-link:hover::after {
-  width: 100%;
-}
+
+/* -------------------------------
+   Gradient System (Brand Identity)
+-------------------------------- */
 .text-gradient {
-  @apply bg-gradient-to-r  from-main  to-secondry bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-main to-secondry bg-clip-text text-transparent;
 }
+
 .bg-gradient {
   @apply bg-gradient-to-r from-main to-secondry;
 }
-.bg-gradient:hover {
-  @apply bg-gradient-to-r from-secondry to-main;
-}
-.form-input {
-  @apply bg-slate-50 dark:bg-slate-900 border border-main/10   px-3 rounded-lg focus:outline-none;
-}
+
+/* -------------------------------
+   Buttons Base Style
+-------------------------------- */
 .btn {
-  @apply h-10 flex justify-center my-1 items-center space-x-1  rounded-lg hover:scale-[0.97] duration-200 font-semibold;
-}
-.btn:disabled {
-  @apply opacity-60 cursor-not-allowed;
-}
-.shadow-div {
-  transition: all 0.3s;
-}
-.shadow-div:hover {
-  box-shadow: 1px 1px 15px 0px #123449;
-}
-::-webkit-scrollbar {
-  @apply w-2 bg-slate-800;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-main rounded-full hover:bg-secondry transition-all duration-700;
-}
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  h2::after {
-    left: 38%;
-  }
+  @apply flex justify-center items-center gap-2
+         rounded-lg font-semibold
+         hover:scale-[0.97] active:scale-95
+         transition-transform duration-200;
 }
 
+/* -------------------------------
+   Scrollbar Customization
+-------------------------------- */
+::-webkit-scrollbar {
+  @apply w-2 bg-slate-200 dark:bg-card_dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-main rounded-full hover:bg-secondry transition-all duration-300;
+}

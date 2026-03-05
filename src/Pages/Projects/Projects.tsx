@@ -1,174 +1,164 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Zap } from "lucide-react";
-import { divVariants } from "../../Constants/Motion";
-import { projectsList } from "../../Constants/Projects";
 import clsx from "clsx";
+import { projectsConfig, projectsList } from "./Projects.constants";
+import { MotionWrapper } from "../../animations/motionVariants";
+
+import { ProjectStatus, type ProjectStatusType } from "./Projects.types";
+import defaultImg from "../../assets/projects/default.png";
+import { Button } from "../../Components/ui/Button";
+
+/**
+ * TechBadge Component
+ * Reusable badge for each technology in the project
+ */
+const TechBadge = ({ name }: { name: string }) => (
+  <span className="px-3 h-7 flex items-center rounded-full bg-slate-200 dark:bg-slate-800 border border-main/20 dark:border-main/20 text-main text-sm transition-transform duration-300 hover:scale-105">
+    {name}
+  </span>
+);
+
+/**
+ * Get dynamic styles based on project status
+ */
+const getStatusStyle = (status: ProjectStatusType) => {
+  switch (status) {
+    case ProjectStatus.COMPLETED:
+      return "bg-green-500 hover:bg-green-500/90";
+    case ProjectStatus.INPROGRESS:
+      return "bg-orange-500 hover:bg-orange-400";
+    default:
+      return "bg-main hover:bg-main/90";
+  }
+};
+
 export default function Projects() {
   return (
-    <section aria-label="Projects section" className="my-20 contain">
-      {/* header */}
-      <motion.h2
-        variants={divVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.4 }}
-      >
-        Featured Projects
-      </motion.h2>
+    <section aria-label="Projects section" className="my-20 section-container">
+      {/* Section Header */}
+      <MotionWrapper delay={0.3}>
+        <h1 className="section-head">Featured Projects</h1>
+      </MotionWrapper>
 
-      {/* projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-20 gap-8 ">
-        {/* projects */}
-        {projectsList.map((project, i) => {
-          return (
-            <motion.div
-              variants={divVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.8 }}
-              key={i}
-              className="relative rounded-lg bg-card_light dark:bg-card_dark cursor-default shadow hover:-top-2 duration-500 group overflow-hidden"
-            >
-              {/* image */}
-              <img
-                className="w-full overflow-hidden rounded-t-lg duration-500 group-hover:scale-105"
-                src={project.image}
-                alt={project.name}
-              />
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-16 gap-8">
+        {projectsList.map((project, i) => (
+          <MotionWrapper key={project.id} delay={0.5 + 0.1 * i}>
+            <article className="relative rounded-lg bg-card_light dark:bg-card_dark shadow-md overflow-hidden group transition-transform duration-500 hover:-translate-y-1 will-change-transform">
+              {/* Project Thumbnail */}
+              <div className=" relative overflow-hidden">
+                <img
+                  src={project.thumbnail || defaultImg}
+                  alt={`${project.title} preview`}
+                  loading="lazy"
+                  className="w-full h-full rounded-t-lg transition-transform duration-500 group-hover:scale-110"
+                />
+                </div>
 
-              {/* details */}
-              <div className="p-5 space-y-3">
-                {/* project Name */}
-                <h3 className="font-semibold text-black dark:text-white text-2xl">
-                  {project.name}
+              {/* Project Content */}
+              <div className="p-4 space-y-3">
+                {/* Title & Description */}
+                <h3 className="font-semibold text-black dark:text-white text-xl capitalize">
+                  {project.title}
                 </h3>
+                <p className="text-light dark:text-dark line-clamp-2">
+                  {project.description}
+                </p>
 
-                {/* project Description */}
-                <p className="text-slate-400 line-clamp-3">{project.desc}</p>
-
-                {/* Tech stack */}
-                <div className="text-sm uppercase font-semibold flex space-x-1 items-center">
-                  <Zap className="w-4 h-4 text-main" aria-label="Zap icon" />
+                {/* Tech Stack */}
+                <div className="text-sm uppercase font-semibold flex gap-1 items-center">
+                  <Zap className="w-4 h-4 text-main" />
                   <span className="text-black dark:text-white">Tech stack</span>
                 </div>
-                <div className="flex flex-wrap space-x-1">
-                  {project.techStack.map((item) => {
-                    return (
-                      <div
-                        key={item}
-                        className="w-fit h-6 p-3 my-1 rounded-full  dark:bg-card_dark border dark:border-sky-900 border-main/65 text-main text-sm  flex justify-center items-center"
-                      >
-                        <span>{item}</span>
-                      </div>
-                    );
-                  })}
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 5).map((tech) => (
+                    <TechBadge key={tech} name={tech} />
+                  ))}
+                  {project.technologies.length > 5 && (
+                    <span className="px-3 h-7 flex items-center rounded-full bg-card_light dark:bg-card_dark border border-main/25 text-sm">
+                      +{project.technologies.length - 5}
+                    </span>
+                  )}
                 </div>
 
-                {/* liveDemo, github */}
-                {project.status ? (
-                  <div className="grid grid-cols-2 gap-3 items-center">
-                    {/* github */}
-                    <button
-                      aria-label="View github"
-                      onClick={() => {
-                        window.open(project.srcCode, "_blank");
-                      }}
-                      className="btn text-sm bg-gradient text-black hover:border-main hover:bg-black/75   "
-                    >
-                      <Github className="w-4 h-4" aria-label="Github icon" />
-                      <span>Source Code</span>{" "}
-                    </button>
+                {/* Project Links */}
+                {project.sourceCode || project.liveDemo ? (
+                  <div className="grid grid-cols-2 gap-3">
+                    {project.sourceCode && (
+                      <a
+                        href={project.sourceCode}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} source code`}
+                      >
+                        <Button className="w-full h-9 text-sm bg-gradient text-black">
+                          <Github className="w-4 h-4" />
+                          <span>Source Code</span>
+                        </Button>
+                      </a>
+                    )}
 
-                    {/* live demo */}
-                    <button
-                      aria-label="Live Demo"
-                      onClick={() => {
-                        window.open(project.liveDemo, "_blank");
-                      }}
-                      className="btn text-sm bg-black  border border-sky-900 hover:border-main hover:opacity-80  text-white"
-                    >
-                      <ExternalLink
-                        className="w-4 h-4"
-                        aria-label="ExternalLink icon"
-                      />{" "}
-                      <span>Live Demo</span>{" "}
-                    </button>
+                    {project.liveDemo && (
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} Live Demo`}
+                      >
+                        <Button className="w-full h-9 text-sm bg-main dark:bg-black border dark:border-main/35 text-white">
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Live Demo</span>
+                        </Button>
+                      </a>
+                    )}
                   </div>
                 ) : (
-                  <button
-                    aria-label="Coming soon"
+                  <Button
                     disabled
-                    onClick={() => {
-                      window.open(project.liveDemo, "_blank");
-                    }}
-                    className="btn text-sm bg-black/80 w-full border border-sky-900 hover:border-main hover:opacity-60 cursor-not-allowed"
+                    className="w-full h-9 text-sm opacity-60 bg-main dark:bg-black cursor-not-allowed"
                   >
-                    <ExternalLink
-                      className="w-4 h-4"
-                      aria-label="ExternalLink icon"
-                    />{" "}
-                    <span>Coming soon </span>{" "}
-                  </button>
+                    Coming Soon...
+                  </Button>
                 )}
-
-                {/* if completed or not  */}
-                <div
-                  className={clsx(
-                    "absolute top-1 right-2 w-fit h-3  flex justify-center items-center rounded-full p-3 space-x-1 text-xs font-semibold text-white",
-                    project.status
-                      ? "bg-green-500 hover:bg-green-400"
-                      : "bg-orange-500 hover:bg-orange-400"
-                  )}
-                >
-                  <motion.div
-                    initial={{ opacity: 0.2 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                    className="w-2 h-2 rounded-full bg-white"
-                  ></motion.div>
-                  <span>{project.status ? "Completed" : "In Progress"}</span>
-                </div>
               </div>
-            </motion.div>
-          );
-        })}
+
+              {/* Status Badge */}
+              <div
+                className={clsx(
+                  "absolute top-2 right-2 px-3 py-1 flex items-center gap-2 rounded-full text-xs font-semibold text-white capitalize",
+                  getStatusStyle(project.status),
+                )}
+              >
+                <motion.span
+                  className="w-2 h-2 bg-white rounded-full"
+                  animate={{ opacity: [0.3, 1, 0.3] }}
+                  transition={{ duration: 1.2, repeat: Infinity }}
+                />
+                {project.status}
+              </div>
+            </article>
+          </MotionWrapper>
+        ))}
       </div>
 
-      {/* expolre more */}
-      <motion.div
-        variants={divVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.8 }}
-        className="my-8 w-full sm:w-[75%] md:w-[60%] lg:w-[50%] xl:w-[35%] h-52 mx-auto text-center flex flex-col justify-center items-center space-y-3 bg-gradient-to-tl to-card_light dark:to-card_dark from-secondry/15
-        border border-main/15 dark:border-sky-900 rounded-lg p-5"
-      >
-        <h3 className="text-gradient text-2xl font-semibold">
-          Explore More Projects
-        </h3>
-
-        <p className="text-slate-400">
-          Discover my complete portfolio and open-source contributions.
-        </p>
-
-        {/* github profile */}
-        <button
-          aria-label="View github profile"
-          onClick={() => {
-            window.open(
-              "https://github.com/Marwanaashraf?tab=repositories",
-              "_blank"
-            );
-          }}
-          className="btn text-sm w-52 bg-main text-black hover:scale-95 duration-500"
-        >
-          <Github className="w-4 h-4" aria-label="github icon" />{" "}
-          <span>View Github profile</span>{" "}
-        </button>
-      </motion.div>
+      {/* Explore More Projects */}
+      <MotionWrapper delay={0.7}>
+        <div className="my-8 max-w-md mx-auto flex flex-col items-center gap-3 text-center bg-gradient-to-tl from-secondry/10 to-card_light dark:to-card_dark border border-main/30 rounded-lg p-6">  
+          <h3 className="text-gradient text-2xl font-semibold">
+            Explore More Projects
+          </h3>
+          <p className="text-slate-400">
+            Discover additional work and open-source contributions.
+          </p>
+          <Button
+            onClick={() => window.open(projectsConfig.githubProfile, "_blank")}
+            className="w-52 h-9 text-sm bg-main text-black"
+          >
+            <Github className="w-4 h-4" />
+            View Github Profile
+          </Button>
+        </div>
+      </MotionWrapper>
     </section>
   );
 }

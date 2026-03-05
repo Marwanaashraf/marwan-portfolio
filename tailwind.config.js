@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -8,8 +8,9 @@ module.exports = {
         secondry: "#C66AFF",
         card_dark: "#0F172A",
         card_light: "#F1F5F9",
-        dark:"#94A3B8",
-        light:"#4A5565"
+        dark: "#94A3B8",
+        light: "#4A5565",
+        error: "#FB2C36",
       },
     },
   },

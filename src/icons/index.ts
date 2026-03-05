@@ -1,5 +1,0 @@
-export * from "./Skills/backend"
-export * from "./Skills/frontend"
-export * from "./Skills/languages"
-export * from "./Skills/soft"
-export * from "./Skills/tools"

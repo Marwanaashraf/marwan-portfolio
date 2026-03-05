@@ -1,0 +1,9 @@
+.edu-card {
+  @apply bg-white dark:bg-slate-900 rounded-lg p-3;
+}
+.edu-header {
+  @apply text-lg font-semibold text-black dark:text-white;
+}
+.info-card {
+  @apply bg-white dark:bg-slate-900 rounded-lg p-3 my-3;
+}
