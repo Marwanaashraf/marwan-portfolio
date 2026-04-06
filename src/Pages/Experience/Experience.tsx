@@ -1,9 +1,9 @@
 import { Briefcase, Calendar, ChevronDown, Dot, MapPin } from "lucide-react";
 import { MotionWrapper } from "../../animations/motionVariants";
 
-import { experienceList } from "./Experience.constants";
 import { useState } from "react";
 import IconButton from "../../Components/IconButton/IconButton";
+import { experienceList } from "./Experience.constants";
 
 export default function Experience() {
   // 🔹 store the currently opened experience card
@@ -66,7 +66,7 @@ export default function Experience() {
                         {item.company}
                       </p>
 
-                      <h5 className="text-xs text-light dark:text-dark">
+                      <h5 className="text-sm text-light dark:text-dark">
                         {item.employmentType}
                       </h5>
                     </div>
@@ -98,7 +98,7 @@ export default function Experience() {
                     {item.responsibilities.map((resp, index) => (
                       <div
                         key={`${item.id}-${index}`}
-                        className="flex items-start gap-1"
+                        className="flex items-start gap-1 bg-main/5  rounded-xl p-2 shadow-sm font-semibold border border-slate-600/10"
                       >
                         <Dot className="text-main w-6 h-6 mt-1" />
                         <span>{resp}</span>

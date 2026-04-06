@@ -6,7 +6,7 @@
    Base Styles
 -------------------------------- */
 body {
-  @apply bg-white dark:bg-[#05080F] text-light dark:text-white
+  @apply bg-slate-50 dark:bg-[#05080F] text-light dark:text-white
          transition-colors duration-300;
 }
 

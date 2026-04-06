@@ -7,6 +7,7 @@ import yummy from "../../assets/projects/yummy.png";
 import dunkin from "../../assets/projects/dunkin.png";
 import weather from "../../assets/projects/Weather.png";
 import lms from "../../assets/projects/lms.png";
+import magic from "../../assets/projects/magic.png";
 
 // githubProfile
 export const projectsConfig = {
@@ -14,6 +15,25 @@ export const projectsConfig = {
 };
 
 export const projectsList: Project[] = [
+  {
+    id: "magic-planet",
+    title: "Magic Planet",
+    description:
+      "Magic Planet is a official  web application a company specializing in agricultural fertilizers and pesticides. The platform allows users to browse products, search and filter them, add items to the cart, and complete orders easily.",
+    liveDemo: "https://magic-planett.vercel.app/",
+    status: ProjectStatus.COMPLETED,
+    thumbnail: magic,
+
+    technologies: [
+      "Next.js",
+      "Zustand",
+      "Tailwindcss",
+      "Supabase",
+      "EmailJS",
+      "cloudinary",
+      "Swiper",
+    ],
+  },
   {
     id: "watchoria",
     title: "Watchoria",
@@ -31,6 +51,24 @@ export const projectsList: Project[] = [
       "Supabase",
       "cloudinary",
       "Swiper",
+    ],
+  },
+   {
+    id: "Education-Lms",
+    title: "Education Lms",
+    description:
+      "Developed a learning platform with secure authentication reducing unauthorized access attempts, Built an Admin Dashboard to manage courses, exams, and users — including adding, editing, and deleting content in real time ,displayed free and paid courses",
+    sourceCode: "https://github.com/Marwanaashraf/LMS",
+    liveDemo: "https://lms-lilac-nu.vercel.app/",
+    status: ProjectStatus.COMPLETED,
+    thumbnail: lms,
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwindcss",
+      "Redux",
+      "Formik",
+      "yup",
     ],
   },
   {
@@ -51,24 +89,7 @@ export const projectsList: Project[] = [
       "yup",
     ],
   },
-  {
-    id: "Education-Lms",
-    title: "Education Lms",
-    description:
-      "Developed a learning platform with secure authentication reducing unauthorized access attempts, Built an Admin Dashboard to manage courses, exams, and users — including adding, editing, and deleting content in real time ,displayed free and paid courses",
-    sourceCode: "https://github.com/Marwanaashraf/LMS",
-    liveDemo: "https://lms-lilac-nu.vercel.app/",
-    status: ProjectStatus.COMPLETED,
-    thumbnail: lms,
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwindcss",
-      "Redux",
-      "Formik",
-      "yup",
-    ],
-  },
+ 
   {
     id: "Basket-Shop",
     title: "Basket Shop",

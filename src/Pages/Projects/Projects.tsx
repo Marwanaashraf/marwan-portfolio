@@ -13,7 +13,7 @@ import { Button } from "../../Components/ui/Button";
  * Reusable badge for each technology in the project
  */
 const TechBadge = ({ name }: { name: string }) => (
-  <span className="px-3 h-7 flex items-center rounded-full bg-slate-200 dark:bg-slate-800 border border-main/20 dark:border-main/20 text-main text-sm transition-transform duration-300 hover:scale-105">
+  <span className="px-3 h-7 flex items-center rounded-full bg-transparent dark:bg-slate-800 border border-main/20 dark:border-main/20 text-main text-sm transition-transform duration-300 hover:scale-105">
     {name}
   </span>
 );
@@ -83,15 +83,16 @@ export default function Projects() {
 
                 {/* Project Links */}
                 {project.sourceCode || project.liveDemo ? (
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-center gap-3">
                     {project.sourceCode && (
                       <a
                         href={project.sourceCode}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View ${project.title} source code`}
+                        className="w-full"
                       >
-                        <Button className="w-full h-9 text-sm bg-gradient text-black">
+                        <Button className="w-full h-10 text-sm bg-gradient text-black">
                           <Github className="w-4 h-4" />
                           <span>Source Code</span>
                         </Button>
@@ -104,8 +105,10 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View ${project.title} Live Demo`}
+                        className="w-full"
+
                       >
-                        <Button className="w-full h-9 text-sm bg-main dark:bg-black border dark:border-main/35 text-white">
+                        <Button className="w-full h-10 text-sm bg-slate-900 dark:bg-black border border-main dark:border-main/35 text-white">
                           <ExternalLink className="w-4 h-4" />
                           <span>Live Demo</span>
                         </Button>

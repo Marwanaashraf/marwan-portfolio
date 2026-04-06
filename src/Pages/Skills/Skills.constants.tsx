@@ -45,6 +45,11 @@ export const skills: Skill[] = [
     icon: "devicon-redux-original",
   },
   {
+    title: "zustand",
+    category: SkillsCategory.Frontend,
+    icon: "devicon-zustand-plain",
+  },
+  {
     title: "Next.js",
     category: SkillsCategory.Frontend,
     icon: "devicon-nextjs-plain",

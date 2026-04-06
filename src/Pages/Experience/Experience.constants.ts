@@ -15,43 +15,30 @@ export const experienceList: Experience[] = [
       "Enhanced debugging and documentation reading skills through hands-on challenges.",
     ],
   },
-  {
-    id: "exp3",
 
-    role: "Back-End (Node.js) Training",
-    company: "Route Academy",
-    employmentType: "Training",
-    startDate: "Oct 2024",
-    endDate: "April 2025",
-    location: "Cairo, Egypt",
-
-    responsibilities: [
-      "Learned and applied Node.js with Express.js, working with MongoDB and MySQL to design and manage databases and build scalable backend systems.",
-      "Developed RESTful APIs such as Notes and Social Media APIs, implementing authentication, CRUD operations, routing, and proper error handling.",
-    ],
-  },
   {
     id: "exp2",
 
-    role: "Front-End Internship",
+    role: "Web Masters — Front-End Developer",
     company: "Web Masters",
-    employmentType: "Internship",
-    startDate: "Aug 2025",
-    endDate: "Oct 2025",
-    location: "Remote",
+    employmentType: "Full-time",
+    startDate: "Dec 2024",
+    endDate: " April 2025",
+    location: "on-Site",
 
     responsibilities: [
-      "Refactored and rebuilt Vanilla JavaScript project, improving maintainability and reducing code duplicationby 30%.",
-      "Collaborated in a 6-member team to develop a responsive education LMS with an Admin Dashboard using Next.js, featuring robust backend integration",
-      "Fixed UI bugs and improved accessibility.",
-      "Rebuilt styling with Tailwind CSS, reducing code size by 60% and improving responsiveness.",
+      "Led the migration of legacy Vanilla JS codebases to Next.js, reducing code duplication by 30%",
+      "Co-engineered a full-scale Learning Management System (LMS) with dynamic student portals and a real-time data-driven Admin Dashboard.Dashboard for course management.",
+      "Streamlined complex data fetching logic by integrating RESTful APIs, ensuring seamless synchronization between the Next.js frontend and the backend infrastructure",
+      "Optimized application speed via Lazy Loading, Image Optimization, and Tailwind CSS, resulting in a 60% reduction in bundle size and smoother UX on low-bandwidth connections.",
+      "Enhanced Managed complex application states and user sessions efficiently, ensuring data persistence and a bug-free checkout/enrollment flow.",
     ],
   },
 
   {
     id: "exp4",
 
-    role: "Freelance Front-End Developer",
+    role: "Freelance Software Engineer",
     company: "Self-Employed",
     employmentType: "Freelance",
     startDate: "Jun 2026",
@@ -59,6 +46,8 @@ export const experienceList: Experience[] = [
     location: "Remote",
 
     responsibilities: [
+      " Magic Planet (Agri-Tech): Architected a full-stack e-commerce platform using Next.js & Supabase, automating order processing and reducing manual inventory updates through a custom Admin Dashboard.",
+      " Engineered a high-performance product filtering system, significantly improving digital customeracquisition and user retention.",
       "Built landing pages optimized for conversion.",
       "Integrated EmailJS and form validation systems.",
       "Ensured cross-browser compatibility and responsiveness.",
