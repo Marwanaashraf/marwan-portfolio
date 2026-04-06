@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext", // تحديث من es5
     "lib": [
       "dom",
       "dom.iterable",
@@ -14,7 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler", // تحديث من node
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
