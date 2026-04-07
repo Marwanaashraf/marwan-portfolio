@@ -1,6 +1,0 @@
-.form-input {
-  @apply bg-slate-50 dark:bg-slate-900 border border-main/20 dark:border-main/15 px-3 rounded-lg focus:outline-none focus:border-main;
-}
-.form-input-error {
-  @apply bg-slate-50 dark:bg-slate-900 border border-error px-3 rounded-lg focus:outline-none;
-}

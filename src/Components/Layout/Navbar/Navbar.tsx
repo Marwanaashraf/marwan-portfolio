@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { Moon, Sun, TextAlignJustify, X } from "lucide-react";
@@ -6,7 +7,6 @@ import { ThemeModes, type ThemeMode } from "./Navbar.types";
 import { PERSONAL_INFO } from "../../../Constants/personInformation";
 import { NAV_LINKS } from "../../../Constants/navLinks";
 import Slider from "./components/Slider/Slider";
-import "./Navbar.css"
 
 export default function Navbar() {
   /**
@@ -125,7 +125,7 @@ export default function Navbar() {
       </nav>
 
       {/* ---------------- Mobile Slider ---------------- */}
-      {navSlider && <Slider   setNavSlider={setNavSlider} />}
+      {navSlider && <Slider setNavSlider={setNavSlider} />}
     </section>
   );
 }

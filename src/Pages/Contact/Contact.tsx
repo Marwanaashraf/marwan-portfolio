@@ -8,7 +8,6 @@ import { useMediaQuery } from "usehooks-ts";
 
 import { MotionWrapper } from "../../animations/motionVariants";
 
-import "./Contact.css";
 import type { ContactForm } from "./Contact.types";
 import { contactvalidationSchema } from "./Contact.validation";
 import { contactList } from "./Contact.constants";

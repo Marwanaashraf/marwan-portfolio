@@ -28,6 +28,53 @@ hr {
 }
 
 /* -------------------------------
+   Navbar
+-------------------------------- */
+.nav-link {
+  @apply text-light dark:text-dark font-semibold relative cursor-pointer;
+}
+.active-link {
+  @apply text-main;
+}
+.active-link::after {
+  content: "";
+  @apply absolute top-full left-0 bg-gradient-to-r w-full h-0.5 from-main to-secondry;
+}
+
+.nav-link::after {
+  content: "";
+  @apply absolute top-full left-0 bg-gradient-to-r w-0 h-0.5 from-main to-secondry transition-all duration-500;
+}
+.nav-link:hover {
+  @apply text-main;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* -------------------------------
+   Contact
+-------------------------------- */
+.form-input {
+  @apply bg-slate-50 dark:bg-slate-900 border border-main/20 dark:border-main/15 px-3 rounded-lg focus:outline-none focus:border-main;
+}
+.form-input-error {
+  @apply bg-slate-50 dark:bg-slate-900 border border-error px-3 rounded-lg focus:outline-none;
+}
+/* -------------------------------
+   Education
+-------------------------------- */
+
+.edu-card {
+  @apply bg-white dark:bg-slate-900 rounded-lg p-3;
+}
+.edu-header {
+  @apply text-lg font-semibold text-black dark:text-white;
+}
+.info-card {
+  @apply bg-white dark:bg-slate-900 rounded-lg p-3 my-3;
+}
+/* -------------------------------
    Gradient System (Brand Identity)
 -------------------------------- */
 .text-gradient {
