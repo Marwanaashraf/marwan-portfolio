@@ -1,7 +1,7 @@
 import { Calendar, GraduationCap, MapPin } from "lucide-react";
 import { MotionWrapper } from "../../animations/motionVariants";
 import { educationData } from "./Education.constants";
-import "./Education.css";
+
 
 export default function Education() {
   const currentYear = new Date().getFullYear();
