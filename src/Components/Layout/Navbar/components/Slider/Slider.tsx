@@ -13,7 +13,7 @@ export default function Slider({ setNavSlider }: TSlider) {
 
   /**
    * Close slider when clicking outside.
-   * Uses document listener with cleanup to prevent memory leaks.
+   * Fixed: Captured ref value in a variable for stable cleanup.
    */
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
@@ -22,10 +22,19 @@ export default function Slider({ setNavSlider }: TSlider) {
       }
     };
 
-    outerRef.current?.addEventListener("mousedown", handleOutsideClick);
+    // 1. بناخد نسخة من الـ ref الحالي جوه الـ Effect
+    const currentOuterRef = outerRef.current;
 
-    return () =>
-      outerRef.current?.removeEventListener("mousedown", handleOutsideClick);
+    if (currentOuterRef) {
+      currentOuterRef.addEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      // 2. بنستخدم النسخة دي في الـ cleanup عشان نضمن إنها لسه بتشاور على نفس الـ DOM node
+      if (currentOuterRef) {
+        currentOuterRef.removeEventListener("mousedown", handleOutsideClick);
+      }
+    };
   }, [setNavSlider]);
 
   return (
