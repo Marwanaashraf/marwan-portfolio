@@ -8,6 +8,8 @@ import dunkin from "../../assets/projects/dunkin.png";
 import weather from "../../assets/projects/Weather.png";
 import lms from "../../assets/projects/lms.png";
 import magic from "../../assets/projects/magic.png";
+import zaffaran from "../../assets/projects/zaffaran.png";
+import daniels from "../../assets/projects/daniels.png";
 
 // githubProfile
 export const projectsConfig = {
@@ -53,7 +55,28 @@ export const projectsList: Project[] = [
       "Swiper",
     ],
   },
-   {
+  {
+    id: "Zaffaran-Museum",
+    title: "Zaffaran Museum",
+    description:
+      "Zaffaran Museum is a modern full-stack web application that showcases Egyptian historical artifacts from the Zaffaran Museum at Ain Shams University through an interactive and visually engaging digital experience.The platform digitizes museum collections and allows users to explore artifacts in a structured, multilingual interface (Arabic & English), while providing powerful administrative and management tools.Built with modern technologies, the project focuses on performance, scalability, and clean architecture.",
+    sourceCode: "",
+    liveDemo: "https://zaffaran.vercel.app/",
+    status: ProjectStatus.COMPLETED,
+    thumbnail: zaffaran,
+
+    technologies: [
+      "Full Stack",
+      "Next.js",
+      "Supabase",
+      "i18next",
+      "Tailwindcss",
+      "Swiper",
+      "Formik",
+      "yup",
+    ],
+  },
+  {
     id: "Education-Lms",
     title: "Education Lms",
     description:
@@ -71,6 +94,7 @@ export const projectsList: Project[] = [
       "yup",
     ],
   },
+
   {
     id: "Fresh-Cart",
     title: "Fresh Cart",
@@ -89,7 +113,7 @@ export const projectsList: Project[] = [
       "yup",
     ],
   },
- 
+
   {
     id: "Basket-Shop",
     title: "Basket Shop",
@@ -188,5 +212,16 @@ export const projectsList: Project[] = [
       "BootStrap",
       "Jquery",
     ],
+  },
+  {
+    id: "daniels",
+    title: "Daniels",
+    description:
+      "Developed a responsive website using HTML, CSS, JavaScript, and Bootstrap. Demonstrates core JavaScript concepts including DOM manipulation, event handling, interactive UI behavior, and clean, structured code.",
+    sourceCode: "https://github.com/Marwanaashraf/Daniels",
+    liveDemo: "https://marwanaashraf.github.io/Daniels/",
+    status: ProjectStatus.COMPLETED,
+    thumbnail: daniels,
+    technologies: ["HTML", "CSS", "BootStrap", "Js", "Responsive Design"],
   },
 ];
