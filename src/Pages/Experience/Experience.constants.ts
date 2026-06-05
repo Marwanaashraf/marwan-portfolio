@@ -18,17 +18,16 @@ export const experienceList: Experience[] = [
 
   {
     id: "exp2",
-
     role: "Web Masters — Front-End Developer",
     company: "Web Masters",
     employmentType: "Full-time",
-    startDate: "Dec 2024",
-    endDate: " April 2025",
-    location: "on-Site",
+    startDate: "Aug 2025",
+    endDate: " Nov 2025",
+    location: "Remote",
 
     responsibilities: [
       "Led the migration of legacy Vanilla JS codebases to Next.js, reducing code duplication by 30%",
-      "Co-engineered a full-scale Learning Management System (LMS) with dynamic student portals and a real-time data-driven Admin Dashboard.Dashboard for course management.",
+      "Co-engineered a full-scale Learning Management System (LMS) with dynamic student portals and a real-time data-driven Admin Dashboard. Dashboard for course management.",
       "Streamlined complex data fetching logic by integrating RESTful APIs, ensuring seamless synchronization between the Next.js frontend and the backend infrastructure",
       "Optimized application speed via Lazy Loading, Image Optimization, and Tailwind CSS, resulting in a 60% reduction in bundle size and smoother UX on low-bandwidth connections.",
       "Enhanced Managed complex application states and user sessions efficiently, ensuring data persistence and a bug-free checkout/enrollment flow.",
