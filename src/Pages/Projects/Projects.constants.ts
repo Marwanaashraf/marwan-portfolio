@@ -10,7 +10,7 @@ import lms from "../../assets/projects/lms.png";
 import magic from "../../assets/projects/magic.png";
 import zaffaran from "../../assets/projects/zaffaran.png";
 import daniels from "../../assets/projects/daniels.png";
-
+import workflow from "../../assets/projects/workflow.png"
 // githubProfile
 export const projectsConfig = {
   githubProfile: "https://github.com/Marwanaashraf?tab=repositories",
@@ -107,10 +107,27 @@ export const projectsList: Project[] = [
     technologies: [
       "React",
       "BootStrap",
-      "Responsive Design",
       "react-slick",
       "Formik",
       "yup",
+    ],
+  },
+  {
+    id: "workflow",
+    title: "Work Flow Builder",
+    description:
+      "modern and interactive Workflow Builder allows users to visually create, edit, connect, and manage workflow nodes using an intuitive drag-and-drop interface.",
+    sourceCode: "https://github.com/Marwanaashraf/workflow-builder",
+    liveDemo: "https://workflow-builder-theta-ten.vercel.app/",
+    status: ProjectStatus.COMPLETED,
+    thumbnail: workflow,
+      technologies: [
+      "React",
+      "TypeScript",
+      "React Flow",
+      "Tailwind CSS",
+      "Formik",
+      "React Toastify",
     ],
   },
 
@@ -169,7 +186,6 @@ export const projectsList: Project[] = [
     technologies: [
       "React",
       "Tailwindcss",
-      "Responsive Design",
       "Swiper",
       "react-query",
     ],

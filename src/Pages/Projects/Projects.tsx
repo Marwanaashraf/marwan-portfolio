@@ -56,7 +56,7 @@ export default function Projects() {
                 </div>
 
               {/* Project Content */}
-              <div className="p-4 space-y-3">
+              <div className="p-4 space-y-3 ">
                 {/* Title & Description */}
                 <h3 className="font-semibold text-black dark:text-white text-xl capitalize">
                   {project.title}
