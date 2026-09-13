@@ -21,7 +21,7 @@ export const experienceList: Experience[] = [
     role: "Web Masters — Front-End Developer",
     company: "Web Masters",
     employmentType: "Full-time",
-    startDate: "Aug 2025",
+    startDate: "july 2025",
     endDate: " Nov 2025",
     location: "Remote",
 
@@ -40,7 +40,7 @@ export const experienceList: Experience[] = [
     role: "Freelance Software Engineer",
     company: "Self-Employed",
     employmentType: "Freelance",
-    startDate: "Jun 2026",
+    startDate: "Dec 2025",
     endDate: "Present",
     location: "Remote",
 
