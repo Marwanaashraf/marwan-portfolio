@@ -1,6 +1,6 @@
 import { Code, CodeXml, LayoutTemplate, PanelsTopLeft } from "lucide-react";
 import type { AboutCard, AboutContent } from "./About.types";
-import userImage from "../../assets/marwan.jpg";
+import userImage from "../../assets/marawan.png";
 
 // your Data
 export const aboutContent: AboutContent = {
