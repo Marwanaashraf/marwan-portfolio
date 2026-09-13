@@ -44,7 +44,7 @@ export default function Projects() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-16 gap-8">
         {projectsList.map((project, i) => (
           <MotionWrapper key={project.id} delay={0.5 + 0.1 * i}>
-            <article className="relative rounded-lg bg-card_light dark:bg-card_dark shadow-md overflow-hidden group transition-transform duration-500 hover:-translate-y-1 will-change-transform">
+            <article className="relative rounded-lg bg-card_light dark:bg-card_dark shadow-md overflow-hidden group transition-transform duration-500 hover:-translate-y-1 will-change-transform h-full">
               {/* Project Thumbnail */}
               <div className=" relative overflow-hidden">
                 <img
@@ -53,7 +53,7 @@ export default function Projects() {
                   loading="lazy"
                   className="w-full h-full rounded-t-lg transition-transform duration-500 group-hover:scale-110"
                 />
-                </div>
+              </div>
 
               {/* Project Content */}
               <div className="p-4 space-y-3 ">
@@ -106,9 +106,8 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         aria-label={`View ${project.title} Live Demo`}
                         className="w-full"
-
                       >
-                        <Button className="w-full h-10 text-sm bg-slate-900 dark:bg-black border border-main dark:border-main/35 text-white">
+                        <Button className="w-full h-10 text-sm bg-main dark:bg-black border border-main/15 dark:border-main/35 text-white">
                           <ExternalLink className="w-4 h-4" />
                           <span>Live Demo</span>
                         </Button>
@@ -146,7 +145,7 @@ export default function Projects() {
 
       {/* Explore More Projects */}
       <MotionWrapper delay={0.7}>
-        <div className="my-8 max-w-md mx-auto flex flex-col items-center gap-3 text-center bg-gradient-to-tl from-secondry/10 to-card_light dark:to-card_dark border border-main/30 rounded-lg p-6">  
+        <div className="my-8 max-w-md mx-auto flex flex-col items-center gap-3 text-center bg-gradient-to-tl from-secondry/10 to-card_light dark:to-card_dark border border-main/30 rounded-lg p-6">
           <h3 className="text-gradient text-2xl font-semibold">
             Explore More Projects
           </h3>
